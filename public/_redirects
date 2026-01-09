@@ -37,6 +37,15 @@
 /fr/questions /fragen 301
 /sv/fragor /fragen 301
 
+# Legacy sitemap redirects (Nuxt -> Astro)
+/sitemap_index.xml /sitemap-index.xml 301
+/__sitemap__/de-DE.xml /sitemap-index.xml 301
+/__sitemap__/en-US.xml /sitemap-index.xml 301
+/__sitemap__/nl-NL.xml /sitemap-index.xml 301
+/__sitemap__/es-ES.xml /sitemap-index.xml 301
+/__sitemap__/fr-FR.xml /sitemap-index.xml 301
+/__sitemap__/sv-SE.xml /sitemap-index.xml 301
+
 # Cross-locale slug fixes
 /nl/behoerden-ki-sicherheit /nl/overheidssector-ai-beveiliging 301
 /nl/unternehmen-ki-sicherheit /nl/bedrijven-ai-beveiliging 301

@@ -1,0 +1,205 @@
+---
+import { getLocalePath, appUrls, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  t: {
+    hero: { title: string; description: string };
+    technology: {
+      title: string;
+      description: string;
+      components: {
+        acoustic: { title: string; description: string };
+        language: { title: string; description: string };
+        ml: { title: string; description: string };
+      };
+    };
+    process: {
+      title: string;
+      steps: {
+        step1: { title: string; description: string };
+        step2: { title: string; description: string };
+        step3: { title: string; description: string };
+        step4: { title: string; description: string };
+        step5: { title: string; description: string };
+      };
+    };
+    benefits: {
+      title: string;
+      items: Array<{ title: string; description: string }>;
+    };
+    industries: {
+      title: string;
+      items: string[];
+    };
+    cta: {
+      title: string;
+      description: string;
+      register: string;
+      pricing: string;
+    };
+  };
+}
+
+const { locale, t } = Astro.props;
+const pricingPath = getLocalePath('pricing', locale);
+---
+
+<div class="bg-base-100 text-base-content">
+  <!-- Hero Section -->
+  <div
+    class="hero min-h-[40vh] relative"
+    style="background: linear-gradient(135deg, #ef56a4 0%, #4a90e2 100%); background-size: cover; background-position: center;"
+  >
+    <div class="hero-content text-center">
+      <div class="backdrop-blur-sm bg-white/10 p-8 rounded-3xl shadow-2xl border border-white/20 max-w-4xl">
+        <h1
+          class="font-display text-4xl md:text-5xl font-bold text-white mb-4"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.title}
+        </h1>
+        <p
+          class="text-lg md:text-xl text-white max-w-2xl mx-auto"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.description}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="py-16 container mx-auto px-4">
+    <!-- Technology Section -->
+    <div class="max-w-5xl mx-auto mb-20">
+      <h2 class="font-display text-3xl font-bold mb-6 text-center">{t.technology.title}</h2>
+      <p class="text-lg text-center mb-12 max-w-3xl mx-auto">{t.technology.description}</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Acoustic Models -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 border border-base-300 h-full">
+          <div class="card-body flex flex-col items-center text-center">
+            <div class="mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            </div>
+            <h3 class="card-title font-display text-xl font-bold">{t.technology.components.acoustic.title}</h3>
+            <p class="flex-grow">{t.technology.components.acoustic.description}</p>
+          </div>
+        </div>
+
+        <!-- Language Models -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 border border-base-300 h-full">
+          <div class="card-body flex flex-col items-center text-center">
+            <div class="mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+            </div>
+            <h3 class="card-title font-display text-xl font-bold">{t.technology.components.language.title}</h3>
+            <p class="flex-grow">{t.technology.components.language.description}</p>
+          </div>
+        </div>
+
+        <!-- ML & Neural Networks -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 border border-base-300 h-full">
+          <div class="card-body flex flex-col items-center text-center">
+            <div class="mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="card-title font-display text-xl font-bold">{t.technology.components.ml.title}</h3>
+            <p class="flex-grow">{t.technology.components.ml.description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process Section -->
+    <div class="max-w-5xl mx-auto mb-20">
+      <h2 class="font-display text-3xl font-bold mb-12 text-center">{t.process.title}</h2>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        {Object.entries(t.process.steps).map(([key, step], index) => (
+          <Fragment>
+            <div class="flex flex-col items-center text-center flex-1">
+              <div class="bg-pink-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg mb-3">
+                {index + 1}
+              </div>
+              <h3 class="font-display font-bold text-sm mb-1">{step.title}</h3>
+              <p class="text-xs text-base-content/70 max-w-[140px]">{step.description}</p>
+            </div>
+            {index < 4 && (
+              <div class="hidden md:block text-pink-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="max-w-5xl mx-auto mb-20">
+      <h2 class="font-display text-3xl font-bold mb-12 text-center">{t.benefits.title}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {t.benefits.items.map((benefit) => (
+          <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-300">
+            <div class="card-body">
+              <div class="flex items-start gap-4">
+                <div class="bg-pink-500/10 p-3 rounded-full shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-bold text-lg mb-1">{benefit.title}</h3>
+                  <p class="text-sm text-base-content/70">{benefit.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Industries Section -->
+    <div class="max-w-4xl mx-auto mb-20">
+      <h2 class="font-display text-3xl font-bold mb-12 text-center">{t.industries.title}</h2>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        {t.industries.items.map((industry) => (
+          <div class="badge badge-lg badge-outline border-pink-500 text-pink-500 py-4 px-6 text-base">
+            {industry}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="max-w-3xl mx-auto">
+      <div class="card bg-gradient-to-br from-pink-500/10 to-blue-500/10 shadow-xl p-8 rounded-3xl border border-pink-500/20 text-center">
+        <h3 class="font-display text-2xl font-bold mb-4">{t.cta.title}</h3>
+        <p class="text-lg mb-8 max-w-xl mx-auto">{t.cta.description}</p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <a href={appUrls.register}>
+            <button class="font-display bg-pink-500 text-white text-xl font-bold py-3 px-8 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide w-full md:w-auto">
+              {t.cta.register}
+            </button>
+          </a>
+          {pricingPath && (
+            <a href={pricingPath} class="btn btn-outline btn-accent px-8 rounded-full">
+              {t.cta.pricing}
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

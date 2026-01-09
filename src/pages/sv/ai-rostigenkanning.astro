@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AiSpeechRecognitionPage from '../../components/AiSpeechRecognitionPage.astro';
+import { aiSpeechRecognitionTranslations } from '../../i18n/aiSpeechRecognition';
+
+const locale = 'sv';
+const t = aiSpeechRecognitionTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="aiSpeechRecognition"
+>
+  <AiSpeechRecognitionPage locale={locale} t={t} />
+</Layout>
