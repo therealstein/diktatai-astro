@@ -13,6 +13,34 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 const locale = 'de';
+
+// BlogPosting Schema
+const blogPostSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  image: post.data.image ? `https://diktat.ai${post.data.image}` : 'https://diktat.ai/diktatai-transkribieren.webp',
+  datePublished: post.data.date,
+  dateModified: post.data.lastModified || post.data.date,
+  author: {
+    '@type': 'Organization',
+    name: 'Diktat AI',
+    url: 'https://diktat.ai'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Diktat AI',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://diktat.ai/logo-dai.svg'
+    }
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://diktat.ai/blog/${post.slug}`
+  }
+};
 ---
 
 <Layout
@@ -21,6 +49,8 @@ const locale = 'de';
   locale={locale}
   routeKey="blog"
   image={post.data.image}
+  articlePublishedTime={post.data.date}
+  articleModifiedTime={post.data.lastModified || post.data.date}
 >
   <div class="min-h-screen bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-white/40 py-12">
     <div class="container mx-auto px-4 max-w-3xl">
@@ -62,4 +92,7 @@ const locale = 'de';
       </article>
     </div>
   </div>
+
+  <!-- BlogPosting Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostSchema)} />
 </Layout>

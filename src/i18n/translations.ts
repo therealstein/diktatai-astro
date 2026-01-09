@@ -11,6 +11,7 @@ export const translations = {
       startNow: 'Jetzt starten',
       subDescription: 'Sparen Sie bis zu 80% Ihrer Zeit bei der Transkription. Jetzt kostenlos starten – keine Kreditkarte erforderlich.',
       socialProof: 'Schon über 1.000 Nutzer sparen täglich Zeit',
+      backgroundAlt: 'KI-gestützte Transkription - Diktat AI Hintergrund',
     },
     benefits: {
       title: 'Warum Diktat AI?',
@@ -191,6 +192,7 @@ export const translations = {
       startNow: 'Start Now',
       subDescription: 'Save up to 80% of your time on transcription. Start free now – no credit card required.',
       socialProof: 'Already over 1,000 users save time daily',
+      backgroundAlt: 'AI-powered transcription - Dictate AI background',
     },
     benefits: {
       title: 'Why Dictate AI?',
@@ -371,6 +373,7 @@ export const translations = {
       startNow: 'Nu starten',
       subDescription: 'Bespaar tot 80% van uw tijd bij het transcriberen. Start nu gratis – geen creditcard vereist.',
       socialProof: 'Al meer dan 1.000 gebruikers besparen dagelijks tijd',
+      backgroundAlt: 'AI-aangedreven transcriptie - Diktat AI achtergrond',
     },
     benefits: {
       title: 'Waarom Diktat AI?',
@@ -551,6 +554,7 @@ export const translations = {
       startNow: 'Comenzar ahora',
       subDescription: 'Ahorre hasta el 80% de su tiempo en transcripción. Comience gratis ahora – sin tarjeta de crédito.',
       socialProof: 'Ya más de 1.000 usuarios ahorran tiempo diariamente',
+      backgroundAlt: 'Transcripción con IA - Fondo de Diktat AI',
     },
     benefits: {
       title: '¿Por qué Diktat AI?',
@@ -731,6 +735,7 @@ export const translations = {
       startNow: 'Commencer maintenant',
       subDescription: 'Économisez jusqu\'à 80% de votre temps de transcription. Commencez gratuitement – sans carte bancaire.',
       socialProof: 'Déjà plus de 1 000 utilisateurs gagnent du temps chaque jour',
+      backgroundAlt: 'Transcription par IA - Arrière-plan Diktat AI',
     },
     benefits: {
       title: 'Pourquoi Diktat AI ?',
@@ -911,6 +916,7 @@ export const translations = {
       startNow: 'Börja nu',
       subDescription: 'Spara upp till 80% av din transkriptionstid. Börja gratis nu – inget kreditkort krävs.',
       socialProof: 'Redan över 1 000 användare sparar tid dagligen',
+      backgroundAlt: 'AI-driven transkription - Diktat AI bakgrund',
     },
     benefits: {
       title: 'Varför Diktat AI?',

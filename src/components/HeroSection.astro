@@ -14,7 +14,7 @@ const t = getTranslation(locale);
   <!-- LCP Image -->
   <img
     src="/herobg.webp"
-    alt=""
+    alt={t('hero.backgroundAlt') || 'KI-Transkription Hintergrund'}
     fetchpriority="high"
     loading="eager"
     decoding="async"
