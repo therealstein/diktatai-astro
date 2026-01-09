@@ -1,0 +1,81 @@
+---
+import { getLocalePath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  t: any;
+}
+
+const { locale, t } = Astro.props;
+const contactPath = getLocalePath('contact', locale);
+---
+
+<div class="bg-base-100 text-base-content">
+  <!-- Hero Section -->
+  <div
+    class="hero min-h-[50vh] relative"
+    style="background: linear-gradient(135deg, #ef56a4 0%, #4a90e2 100%); background-size: cover; background-position: center;"
+  >
+    <div class="hero-content text-center">
+      <div class="backdrop-blur-sm bg-white/10 p-8 rounded-3xl shadow-2xl border border-white/20 max-w-3xl">
+        <h1
+          class="font-display text-4xl font-bold text-white mb-4"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.title}
+        </h1>
+        <p
+          class="text-xl text-white"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="py-16 container mx-auto px-4 max-w-4xl">
+    <!-- Direct Support Section -->
+    <div class="mb-16">
+      <h2 class="font-display text-3xl font-bold mb-8 text-center">{t.support.title}</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+          <h3 class="font-display text-xl font-bold mb-4">{t.support.contactForm.title}</h3>
+          {contactPath && (
+            <a href={contactPath} class="btn btn-primary mt-4">
+              {t.support.contactForm.button}
+            </a>
+          )}
+        </div>
+
+        <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+          <h3 class="font-display text-xl font-bold mb-4">{t.support.email.title}</h3>
+          <a
+            href="mailto:support@diktat.ai"
+            class="text-pink-500 hover:text-pink-600 font-bold text-lg"
+          >
+            support@diktat.ai
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guides Section -->
+    <div class="mb-16">
+      <h2 class="font-display text-3xl font-bold mb-8 text-center">{t.guides.title}</h2>
+
+      {t.guides.gettingStarted && (
+        <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+          <h3 class="font-display text-xl font-bold mb-4">{t.guides.gettingStarted.title}</h3>
+          <ol class="list-decimal pl-6 space-y-2">
+            {t.guides.gettingStarted.steps.map((step: string) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+        </div>
+      )}
+    </div>
+  </div>
+</div>

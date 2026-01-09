@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CompaniesPage from '../../components/CompaniesPage.astro';
+import { companiesTranslations } from '../../i18n/userGroups/companies';
+
+const locale = 'nl';
+const t = companiesTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="companies"
+>
+  <CompaniesPage locale={locale} t={t} />
+</Layout>

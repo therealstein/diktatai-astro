@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LegalPage from '../../components/LegalPage.astro';
+import { legalTranslations } from '../../i18n/legal';
+
+const locale = 'sv';
+const t = legalTranslations.imprint[locale];
+---
+
+<Layout
+  title={t.meta.title}
+  description={t.meta.description}
+  locale={locale}
+  routeKey="imprint"
+  noindex={true}
+>
+  <LegalPage title={t.title} content={t.content} />
+</Layout>

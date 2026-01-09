@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DatasafetyPage from '../../components/DatasafetyPage.astro';
+import { datasafetyTranslations } from '../../i18n/userGroups/datasafety';
+
+const locale = 'fr';
+const t = datasafetyTranslations[locale];
+---
+
+<Layout
+  title={t.meta.title}
+  description={t.meta.description}
+  locale={locale}
+  routeKey="datasafety"
+>
+  <DatasafetyPage locale={locale} t={t} />
+</Layout>

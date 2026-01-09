@@ -1,0 +1,112 @@
+---
+import { getLocalePath, type Locale } from '../i18n/utils';
+import { faqTranslations } from '../i18n/faq';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const faq = faqTranslations[locale] || faqTranslations.de;
+
+// Check if questions page exists for this locale
+const questionsPath = getLocalePath('questions', locale);
+const contactPath = getLocalePath('contact', locale);
+
+// Generate FAQ Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.items.map((item) => ({
+    '@type': 'Question',
+    name: item.title,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.description + (item.list ? ' ' + item.list.join(' ') : '') + (item.steps ? ' ' + item.steps.join(' ') : '') + (item.conclusion ? ' ' + item.conclusion : ''),
+    },
+  })),
+};
+---
+
+<div class="container mx-auto px-4 py-16">
+  <h2 class="font-display text-4xl font-bold text-center mb-4 tracking-tight">
+    {faq.title}
+  </h2>
+  <p class="text-lg font-medium text-base-content/80 max-w-3xl mx-auto text-center mb-12 leading-relaxed">
+    {faq.description}
+  </p>
+
+  <div class="max-w-4xl mx-auto space-y-6">
+    {faq.items.map((item, index) => (
+      <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="card-body">
+          <h3 class="card-title font-display text-xl font-bold">
+            {item.title}
+          </h3>
+          <p class="text-base-content/80 leading-relaxed mb-4">
+            {item.description}
+          </p>
+          {item.list && (
+            <ul class="list-disc list-inside space-y-2 text-base-content/80">
+              {item.list.map((listItem) => (
+                <li>
+                  <strong>{listItem}</strong>
+                </li>
+              ))}
+            </ul>
+          )}
+          {item.steps && (
+            <>
+              <ol class="list-decimal list-inside space-y-2 text-base-content/80">
+                {item.steps.map((step) => (
+                  <li>{step}</li>
+                ))}
+              </ol>
+              {item.conclusion && (
+                <p class="text-base-content/80 leading-relaxed mt-4">
+                  {item.conclusion}
+                </p>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="text-center mt-12">
+    <p class="text-lg font-medium text-base-content/80 mb-4">
+      {faq.stillHaveQuestions}
+    </p>
+    <p class="text-base text-base-content/70 max-w-2xl mx-auto mb-6">
+      {faq.reachOutText}
+    </p>
+    {questionsPath ? (
+      <a
+        href={questionsPath}
+        class="font-display bg-purple-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide inline-block"
+      >
+        {faq.moreQuestions}
+      </a>
+    ) : contactPath ? (
+      <a
+        href={contactPath}
+        class="font-display bg-purple-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide inline-block"
+      >
+        {faq.moreQuestions}
+      </a>
+    ) : null}
+  </div>
+</div>
+
+<!-- FAQ Schema for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .card {
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+  }
+</style>

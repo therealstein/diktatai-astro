@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CoachesPage from '../components/CoachesPage.astro';
+import { coachesTranslations } from '../i18n/userGroups/coaches';
+
+const locale = 'de';
+const t = coachesTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="coaches"
+>
+  <CoachesPage locale={locale} t={t} />
+</Layout>

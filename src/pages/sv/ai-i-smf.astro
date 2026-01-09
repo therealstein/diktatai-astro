@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AiInSmePage from '../../components/AiInSmePage.astro';
+import { aiInSmeTranslations } from '../../i18n/userGroups/aiInSme';
+
+const locale = 'sv';
+const t = aiInSmeTranslations[locale];
+---
+
+<Layout
+  title={t.hero.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="aiInSme"
+>
+  <AiInSmePage locale={locale} t={t} />
+</Layout>

@@ -1,0 +1,382 @@
+# Diktat AI - AI-Powered Transcription Service
+
+> Sprache in Text – fix, präzise und datenschutz-first. Einfach zu bedienen und made for professionals.
+
+## Overview
+
+Diktat AI is a German-based AI transcription service that converts spoken words from meetings, interviews, lectures, and notes into accurate text. The platform prioritizes data security with GDPR-compliant processing and EU-based data storage.
+
+**Website**: https://diktat.ai
+**Primary Languages**: German (DE), English (EN)
+**Base URL**: https://diktat.ai
+**Contact**: support@diktat.ai
+
+## Target Users
+
+- **Business Professionals & Leaders**: Document meetings, ideas, and notes efficiently
+- **Lawyers & Attorneys**: GDPR-compliant recording of client meetings and dictations
+- **Journalists & Editors**: Transcribe interviews, press conferences, and research recordings
+- **Consultants & Coaches**: Document customer meetings and sessions
+- **Content Creators**: Generate show notes, subtitles, and blog article content
+- **Students & Academics**: Transcribe lectures, seminars, theses, and research
+- **Regulated Industries**: Healthcare, finance, legal, critical infrastructure with strict compliance needs
+
+## Core Features
+
+### Transcription Capabilities
+- **Audio & Video Upload**: Supports MP3, WAV, MP4, M4A, AAC, OGG, OPUS, WebM, FLAC, MOV formats
+- **Language Support**: German (DE) and English (EN)
+- **Speaker Diarization**: Automatic speaker identification and separation (Pro feature)
+- **High Accuracy**: 95% transcription accuracy using state-of-the-art AI models
+- **Batch Processing**: Pro users can upload multiple files simultaneously
+- **Smart Processing**: Context-aware transcription with domain options (legal, journalism, academic, medical, business, police)
+
+### Advanced Features (Pro & Business)
+- **Magic Transcript**: AI-powered transcript enhancement and formatting
+- **Interview Transcript**: Specialized formatting for interviews with speaker identification
+- **Timestamped Transcripts**: Time-coded transcription for easy audio reference
+- **Multiple View Modes**:
+  - Processed View: Clean, formatted transcription
+  - Raw View: Original transcription output
+  - Timestamps View: Time-coded segments
+
+### Project Management
+- **Project Organization**: All transcriptions organized in a central dashboard
+- **Project Modes**:
+  - Single Project Mode: Multiple files combined into one project
+  - File Per Project Mode: Each file becomes a separate project
+- **Project Metadata**: Duration tracking, creation dates, status monitoring
+- **Export Options**: Download transcripts in various formats
+
+## Pricing & Plans
+
+### Free Plan (€0/month)
+- Up to 60 minutes of audio per month (approximately 30 A4 pages of text)
+- Reliable transcription
+- Easy handling
+- Basic email support
+- No credit card required
+
+### Pro Plan (€14.00/month - Pioneer Offer)
+- Regular price: €24.90/month (44% savings)
+- **7-day free trial available**
+- Unlimited transcription minutes*
+- Maximum accuracy with best AI
+- Priority processing
+- Speaker diarization (identify speakers)
+- Premium email support
+- API access for integration
+- Multiple file upload
+- Magic Transcript feature
+- Interview Transcript feature
+
+### Business Suite (Custom Pricing)
+- All Pro Plan features plus:
+- **On-Premise or Private Cloud Deployment**: Full data sovereignty
+- **SSO Integration**: Azure AD, Okta, Ping Identity, SAML 2.0
+- **Complete Data Control**: Store data at your location
+- **Extended API**: Deep system integration with CRM, DMS, ERP systems
+- **Custom Compliance**: Individual adaptation to compliance & security requirements
+- **Dedicated Support**: Account management and priority assistance
+- **Optional AI Customization**: Train models on company-specific data for specialized terminology
+- **Identity Management**: Central user administration
+
+*Fair-Use-Policy may apply
+
+## User Journey
+
+### 1. Registration & Onboarding
+- Navigate to `/auth/register`
+- Create account with email
+- Email confirmation at `/auth/confirm`
+- Optional onboarding process
+
+### 2. Dashboard Access
+- Main app dashboard at `/app`
+- Upload area prominently displayed
+- Project list with status indicators
+- Empty state with helpful guidance arrows
+
+### 3. File Upload Process
+- Drag-and-drop or click to upload audio/video files
+- Multiple file upload (Pro users)
+- Select language (DE/EN)
+- Optional: Choose context domain
+- Optional: Enable speaker diarization (Pro)
+- Submit for processing
+
+### 4. Processing Status
+- Real-time status updates
+- States: uploading → processing → transcribing → completed
+- Duration and progress tracking
+
+### 5. View Transcription
+- Navigate to project detail page `/app/f/[id]`
+- View options:
+  - **Processed**: Clean, formatted text
+  - **Raw**: Original output (if LLM processed)
+  - **Timestamps**: Time-coded segments
+- Project information: duration, creation date
+- Access to Magic Transcript and Interview Transcript features (Pro)
+
+### 6. Download & Export
+- Download transcripts in various formats
+- Export for further processing
+- Integration via API (Pro/Business)
+
+## Key Pages & Routes
+
+### Public Pages
+- `/` - Homepage with feature overview
+- `/preise` (DE) / `/pricing` (EN) - Pricing plans
+- `/ki-transkription-wie-es-funktioniert` (DE) / `/ai-transcription-how-it-works` (EN) - How it works
+- `/business-suite` - Enterprise solution information
+- `/datensicherheit-ki-spracherkennung` (DE) / `/privacy-and-data-safety-ai-speech-recognition` (EN) - Data safety
+- `/kontakt` (DE) / `/contact` (EN) - Contact page
+- `/hilfe` (DE) / `/help` (EN) - Help center
+
+### Authentication Pages
+- `/auth/login` - User login
+- `/auth/register` - New user registration
+- `/auth/confirm` - Email confirmation
+- `/auth/subscribe` - Pro plan subscription
+- `/auth/reset-password` - Password reset
+
+### App Pages (Protected)
+- `/app` - Main dashboard
+- `/app/f/[id]` - Project detail view
+- `/app/profile` - User profile settings
+- `/app/hilfe` - In-app help
+- `/app/telegram` - Telegram integration
+- `/app/mailservice` - Email service configuration
+
+### Legal Pages
+- `/impressum` (DE) / `/imprint` (EN) - Imprint
+- `/datenschutz` (DE) / `/privacy` (EN) - Privacy policy
+- `/nutzungsbedingungen` (DE) / `/terms` (EN) - Terms of service
+
+### Key Features
+- **Real-time Updates**: Live status tracking
+- **Secure Upload**: Pre-signed URLs for direct R2 upload
+- **GDPR Compliance**: EU-based data storage
+- **API Access**: RESTful API for integrations
+
+## Data Security & Compliance
+
+### GDPR Compliance
+- EU-based data storage
+- Right to data access
+- Right to deletion
+- Data encryption at rest and in transit
+- Privacy-first architecture
+
+### Security Features
+- End-to-end encryption
+- Secure file upload via pre-signed URLs
+- Authentication via Supabase
+- Session management
+- Role-based access control
+
+### Business Suite Security
+- On-premise deployment option
+- Private cloud hosting
+- Custom data retention policies
+- Audit logging
+- SSO integration (Azure AD, Okta)
+- SAML 2.0 support
+
+## Use Cases by Industry
+
+### Legal Sector
+- Client meeting documentation
+- Court hearing transcripts
+- Legal dictation conversion
+- Case note documentation
+- Deposition transcription
+
+### Healthcare
+- Medical consultation notes
+- Patient interview documentation
+- Research interview transcription
+- Medical conference recordings
+- Telehealth session documentation
+
+### Media & Journalism
+- Interview transcription
+- Press conference documentation
+- Podcast show notes
+- Research material transcription
+- Documentary footage logging
+
+### Education & Research
+- Lecture transcription
+- Research interview documentation
+- Focus group analysis
+- Thesis research material
+- Academic conference recordings
+
+### Business & Corporate
+- Meeting minutes
+- Stakeholder interviews
+- Training session documentation
+- Executive presentations
+- Sales call transcription
+- Customer feedback sessions
+
+### Regulated Industries
+- Compliance documentation
+- Audit trail creation
+- Regulatory meeting records
+- Quality assurance documentation
+- Incident report transcription
+
+## Integration Capabilities (Business Suite)
+
+### Identity Management
+- Microsoft Azure AD
+- Okta
+- Ping Identity
+- Any SAML 2.0-based system
+
+### System Integration via API
+- CRM systems (Salesforce, HubSpot, Microsoft Dynamics)
+- Document Management Systems (DMS)
+- ERP systems (SAP, Oracle)
+- Custom in-house applications
+- Workflow automation tools
+
+### Data Flow
+1. Upload audio/video via API
+2. Receive webhook notification on completion
+3. Retrieve transcript via API
+4. Automatic integration into target systems
+
+## Quality & Performance
+
+### Transcription Quality
+- 95% accuracy rate
+- Context-aware processing
+- Domain-specific optimization
+- Continuous model improvement
+
+### Performance Metrics
+- Fast processing times
+- Priority queue for Pro users
+- Scalable infrastructure
+- High availability (99.9% uptime)
+
+### Supported Formats
+**Audio**: MP3, WAV, M4A, AAC, OGG, OPUS, FLAC
+**Video**: MP4, WebM, MOV
+
+## Support & Resources
+
+### Free Users
+- Email support: support@diktat.ai
+- Help documentation: /hilfe
+- FAQ section
+- Response time: 24-48 hours
+
+### Pro Users
+- Premium email support
+- Priority response (12-24 hours)
+- API documentation access
+- Integration guidance
+
+### Business Users
+- Dedicated account manager
+- Phone support
+- Custom SLA agreements
+- On-site training available
+- Technical integration support
+
+## Special Features
+
+### Telegram Integration
+- Connect Diktat AI to Telegram
+- Send audio files via Telegram bot
+- Receive transcripts directly in Telegram
+- Status notifications
+
+### Email Service
+- Email audio files for transcription
+- Receive transcripts via email
+- Automated workflow integration
+
+### Review System
+- User feedback collection
+- Trustpilot integration
+- Quality assurance
+- Continuous improvement feedback loop
+
+## Compliance Standards
+
+- **GDPR**: Full compliance with EU data protection regulation
+- **ISO 27001**: Information security management (Business Suite)
+- **EU AI Act**: Compliant with upcoming EU AI legislation
+- **Industry-specific**: Healthcare (HIPAA equivalent), Financial (SOX), Legal (attorney-client privilege)
+
+## Geographical Focus
+
+**Primary Markets**: Germany, Austria, Switzerland, European Union
+**Language Support**: German and English
+**Data Centers**: European Union only
+**Legal Jurisdiction**: German law
+
+## Competitive Advantages
+
+1. **Privacy-First**: EU-based, GDPR-compliant from the ground up
+2. **German Market Expertise**: Optimized for German language and business practices
+3. **Flexible Deployment**: Cloud, on-premise, or hybrid options
+4. **Enterprise-Ready**: SSO, API, and compliance features
+5. **Specialized AI**: Context-aware, domain-specific models
+6. **Transparent Pricing**: Clear, predictable costs with early-bird special
+
+## Common Questions
+
+**Q: How accurate is the transcription?**
+A: 95% accuracy on average, with higher accuracy for clear audio and Pro features enabled.
+
+**Q: How long does processing take?**
+A: Typically 5-10 minutes for a 1-hour audio file. Pro users get priority processing.
+
+**Q: Is my data secure?**
+A: Yes, all data is encrypted, stored in EU data centers, and GDPR-compliant.
+
+**Q: Can I try before I buy?**
+A: Yes, free plan offers 60 minutes/month, and Pro plan has a 7-day free trial.
+
+**Q: Do you offer API access?**
+A: Yes, API access is included in Pro and Business plans.
+
+**Q: Can you deploy on-premise?**
+A: Yes, available with Business Suite for complete data sovereignty.
+
+**Q: Which languages are supported?**
+A: Currently German and English, with more languages planned.
+
+**Q: What file formats do you accept?**
+A: Audio (MP3, WAV, M4A, AAC, OGG, OPUS, FLAC) and Video (MP4, WebM, MOV).
+
+## Changelog & Roadmap
+
+### Recent Features
+- Speaker diarization for Pro users
+- Magic Transcript AI enhancement
+- Interview transcript formatting
+- Telegram integration
+- Batch upload for Pro users
+
+### Upcoming Features
+- Additional language support
+- Mobile apps (iOS/Android)
+- Real-time transcription
+- Advanced analytics dashboard
+- Team collaboration features
+- Custom vocabulary management
+
+---
+
+*Last Updated: October 2025*
+*For the most current information, visit: https://diktat.ai*
+

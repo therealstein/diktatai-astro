@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HowItWorksPage from '../../components/HowItWorksPage.astro';
+import { howItWorksTranslations } from '../../i18n/howItWorks';
+
+const locale = 'sv';
+const t = howItWorksTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="howItWorks"
+>
+  <HowItWorksPage locale={locale} t={t} />
+</Layout>

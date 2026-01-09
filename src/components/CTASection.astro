@@ -1,0 +1,38 @@
+---
+import { getTranslation, getLocalePath, appUrls, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslation(locale);
+const pricingPath = getLocalePath('pricing', locale);
+---
+
+<!-- Final CTA Section - Enhanced -->
+<div class="w-full py-16 bg-cover bg-center" style="background-image: url('/cta-web.webp');">
+  <div class="flex justify-center items-center text-center">
+    <div class="max-w-2xl backdrop-blur-sm bg-white/10 p-8 rounded-3xl shadow-2xl border border-white/20">
+      <h2 class="font-display text-4xl font-bold leading-tight tracking-tight mb-2">{t('cta.title')}</h2>
+      <p class="py-6 text-lg font-medium leading-relaxed">
+        {t('cta.description')}
+      </p>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+        <a href={appUrls.register}>
+          <button class="font-display bg-pink-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide">
+            {t('cta.startFree')}
+          </button>
+        </a>
+        {pricingPath && (
+          <a href={pricingPath}>
+            <button class="font-display border-2 border-white/70 bg-white/10 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-white/20 transition-all shadow-lg tracking-wide">
+              {t('cta.viewPricing')}
+            </button>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</div>

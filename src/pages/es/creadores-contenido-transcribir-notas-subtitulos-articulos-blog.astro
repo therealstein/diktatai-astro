@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContentCreatorsPage from '../../components/ContentCreatorsPage.astro';
+import { contentcreatorsTranslations } from '../../i18n/userGroups/contentcreators';
+
+const locale = 'es';
+const t = contentcreatorsTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="contentcreators"
+>
+  <ContentCreatorsPage locale={locale} t={t} />
+</Layout>

@@ -1,0 +1,44 @@
+# Redirect auth pages to homepage
+/auth/register / 301
+/en/auth/register /en/ 301
+/nl/auth/register /nl/ 301
+
+# Legacy routes
+/pricing /preise 301
+/questions /fragen 301
+/en/how-it-works /en/ai-transcription-how-it-works 301
+/en/public-sector /en/public-sector-ai-security 301
+/regulierte-branchen /regulierte-branchen-ki-sicherheit 301
+/ki-spracherkennung-funktionsweise /ki-spracherkennung 301
+/sample-page / 301
+
+# Internal /general/ paths redirects
+/general/datasafety /datensicherheit-ki-spracherkennung 301
+/general/about /ueber-uns 301
+/general/kontakt /kontakt 301
+/general/help /hilfe 301
+/general/coaches /berater-und-coaches-kundengespraeche-sitzungen-effizient-dokumentieren 301
+/general/contentcreators /content-ersteller-show-notes-untertitel-blogartikel-inhalte-transkribieren 301
+/general/lawyers /juristen-und-anwaelte-diktate-mandantengespraeche-dsgvo-konform-aufzeichnen 301
+/general/sales /geschaeftsleute-und-fuehrungskraefte-meetings-ideen-und-notizen-effizient-festhalten 301
+/general/media /journalisten-und-redakteure-interviews-pressekonferenzen-recherche-aufnahmen-umwandeln 301
+/general/students /studierende-und-akademiker-vorlesungen-seminare-abschlussarbeiten-und-forschung-transkribieren 301
+/general/behoerden /behoerden-ki-sicherheit 301
+/general/unternehmen /unternehmen-ki-sicherheit 301
+/general/regulierte-branchen /regulierte-branchen-ki-sicherheit 301
+/general/business-suite /business-suite 301
+/general/eu-ki-gesetz /eu-ki-gesetz 301
+/general/ki-im-mittelstand /ki-im-mittelstand 301
+/general/ki-spracherkennung /ki-spracherkennung 301
+
+# Unsupported locale question index routes -> redirect to German /fragen
+/nl/vragen /fragen 301
+/es/preguntas /fragen 301
+/fr/questions /fragen 301
+/sv/fragor /fragen 301
+
+# Cross-locale slug fixes
+/nl/behoerden-ki-sicherheit /nl/overheidssector-ai-beveiliging 301
+/nl/unternehmen-ki-sicherheit /nl/bedrijven-ai-beveiliging 301
+/es/juristen-und-anwaelte-diktate-mandantengespraeche-dsgvo-konform-aufzeichnen /es/abogados-grabar-reuniones-clientes-cumplimiento-rgpd 301
+/nl/journalisten-und-redakteure-interviews-pressekonferenzen-recherche-aufnahmen-umwandeln /nl/journalisten-en-redacteuren-interviews-persconferenties-onderzoeksopnames-transcriberen 301

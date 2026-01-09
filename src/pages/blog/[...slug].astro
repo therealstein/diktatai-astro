@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const locale = 'de';
+---
+
+<Layout
+  title={`${post.data.title} - Diktat AI Blog`}
+  description={post.data.description}
+  locale={locale}
+  routeKey="blog"
+  image={post.data.image}
+>
+  <div class="min-h-screen bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-white/40 py-12">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <article class="bg-white/70 backdrop-blur-sm border border-indigo-200/50 rounded-2xl p-8 shadow-lg">
+        {post.data.image && (
+          <img
+            src={post.data.image}
+            alt={post.data.title}
+            class="w-full h-64 object-cover rounded-xl mb-6"
+          />
+        )}
+
+        <header class="mb-8">
+          <h1 class="text-4xl font-bold text-gray-800 mb-4">{post.data.title}</h1>
+          <time class="text-sm text-gray-500">
+            {new Date(post.data.date).toLocaleDateString('de-DE', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </header>
+
+        <div class="prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-700 prose-a:text-indigo-600 hover:prose-a:text-purple-600">
+          <Content />
+        </div>
+
+        <footer class="mt-12 pt-8 border-t border-indigo-200/30">
+          <a
+            href="/blog"
+            class="inline-flex items-center text-indigo-600 hover:text-purple-600 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Zurück zum Blog
+          </a>
+        </footer>
+      </article>
+    </div>
+  </div>
+</Layout>

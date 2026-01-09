@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import UserGroupsSection from '../components/UserGroupsSection.astro';
+import HowItWorksSection from '../components/HowItWorksSection.astro';
+import BenefitsSection from '../components/BenefitsSection.astro';
+import IntegrationsSection from '../components/IntegrationsSection.astro';
+import BusinessSolutionsSection from '../components/BusinessSolutionsSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+
+const locale = 'de';
+---
+
+<Layout
+  title="KI-gestützte Transkription - Diktat AI"
+  description="Diktat AI bietet schnelle und präzise KI-Transkriptionen für Meetings, Interviews und mehr. DSGVO-konform, auf EU-Servern. Jetzt kostenlos starten!"
+  locale={locale}
+  routeKey="index"
+>
+  <HeroSection locale={locale} />
+  <UserGroupsSection locale={locale} />
+  <HowItWorksSection locale={locale} />
+  <BenefitsSection locale={locale} />
+  <IntegrationsSection locale={locale} />
+  <BusinessSolutionsSection locale={locale} />
+  <FAQSection locale={locale} />
+  <CTASection locale={locale} />
+</Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import UserGroupsSection from '../../components/UserGroupsSection.astro';
+import HowItWorksSection from '../../components/HowItWorksSection.astro';
+import BenefitsSection from '../../components/BenefitsSection.astro';
+import IntegrationsSection from '../../components/IntegrationsSection.astro';
+import BusinessSolutionsSection from '../../components/BusinessSolutionsSection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const locale = 'nl';
+---
+
+<Layout
+  title="AI-gestuurde Transcriptie - Diktat AI"
+  description="Diktat AI biedt snelle en nauwkeurige AI-transcripties voor meetings, interviews en meer. GDPR-conform, gehost op EU-servers. Start nu gratis!"
+  locale={locale}
+  routeKey="index"
+>
+  <HeroSection locale={locale} />
+  <UserGroupsSection locale={locale} />
+  <HowItWorksSection locale={locale} />
+  <BenefitsSection locale={locale} />
+  <IntegrationsSection locale={locale} />
+  <BusinessSolutionsSection locale={locale} />
+  <FAQSection locale={locale} />
+  <CTASection locale={locale} />
+</Layout>

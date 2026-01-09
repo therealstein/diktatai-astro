@@ -1,0 +1,383 @@
+---
+import { getLocalePath, type Locale } from '../i18n/utils';
+import type { ContactTranslation } from '../i18n/userGroups/contact';
+
+interface Props {
+  locale: Locale;
+  t: ContactTranslation;
+}
+
+const { locale, t } = Astro.props;
+const privacyPath = getLocalePath('privacy', locale);
+---
+
+<div class="bg-base-100 text-base-content">
+  <!-- Hero Section -->
+  <div
+    class="hero min-h-[50vh] relative"
+    style="background: linear-gradient(135deg, #ef56a4 0%, #4a90e2 100%); background-size: cover; background-position: center;"
+  >
+    <div class="hero-content text-center">
+      <div class="backdrop-blur-sm bg-white/10 p-8 rounded-3xl shadow-2xl border border-white/20 max-w-3xl">
+        <h1
+          class="font-display text-4xl font-bold text-white mb-4"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.title}
+        </h1>
+        <p
+          class="text-xl text-white mb-8"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="py-16 container mx-auto px-4 max-w-4xl">
+    <div class="prose prose-lg max-w-none">
+      <!-- Introduction -->
+      <div class="mb-16">
+        <p class="text-lg mb-8 text-center">
+          {t.introduction}
+        </p>
+      </div>
+
+      <!-- Contact Form Section -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.form.title}
+        </h2>
+        <div class="card bg-base-200 p-8 rounded-2xl border border-base-300">
+          <form id="contact-form" class="space-y-6">
+            <div id="success-message" class="alert alert-success hidden">
+              <span>{t.success}</span>
+            </div>
+            <div id="error-message" class="alert alert-error hidden">
+              <span>{t.error}</span>
+            </div>
+
+            <!-- Honeypot field - hidden from humans but visible to bots -->
+            <div class="honeypot-field">
+              <label for="website">{t.form.website}</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                autocomplete="off"
+                tabindex="-1"
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">{t.form.name}*</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder={t.form.namePlaceholder}
+                class="input input-bordered w-full"
+                required
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">{t.form.email}*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder={t.form.emailPlaceholder}
+                class="input input-bordered w-full"
+                required
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">{t.form.subject}*</span>
+              </label>
+              <select
+                name="subject"
+                class="select select-bordered w-full"
+                required
+              >
+                <option value="Allgemeine Frage">{t.form.subjects.general}</option>
+                <option value="Technischer Support">{t.form.subjects.support}</option>
+                <option value="Preisinformationen">{t.form.subjects.pricing}</option>
+                <option value="Feedback">{t.form.subjects.feedback}</option>
+                <option value="Business Suite">{t.form.subjects.businessSuite}</option>
+                <option value="Partnerschaftsanfrage">{t.form.subjects.partnership}</option>
+                <option value="Widerruf">{t.form.subjects.widerruf}</option>
+                <option value="Sonstiges">{t.form.subjects.other}</option>
+              </select>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">{t.form.message}*</span>
+              </label>
+              <textarea
+                name="message"
+                class="textarea textarea-bordered min-h-[200px] w-full"
+                placeholder={t.form.messagePlaceholder}
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-control">
+              <div class="flex gap-2 items-start">
+                <input
+                  type="checkbox"
+                  name="privacyAccepted"
+                  class="checkbox checkbox-primary shrink-0 mt-0.5"
+                  required
+                />
+                <label
+                  class="label-text text-sm cursor-pointer"
+                  style="word-break: break-word; overflow-wrap: break-word"
+                >
+                  {t.form.privacyPrefix}
+                  {privacyPath && (
+                    <a
+                      href={privacyPath}
+                      class="text-pink-500 hover:text-pink-600 underline"
+                    >{t.form.privacyLink}</a>
+                  )}
+                  {t.form.privacySuffix}
+                </label>
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">{t.form.company}</span>
+              </label>
+              <input
+                type="text"
+                name="company"
+                placeholder={t.form.companyPlaceholder}
+                class="input input-bordered w-full"
+              />
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">{t.form.phone}</span>
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder={t.form.phonePlaceholder}
+                class="input input-bordered w-full"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary w-full"
+              id="submit-btn"
+            >
+              <span id="submit-text">{t.form.submit}</span>
+              <span id="loading-text" class="hidden">
+                <span class="loading loading-spinner"></span>
+                {t.form.sending}
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Alternative Contact Methods -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.alternatives.title}
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-4">
+              {t.alternatives.email.title}
+            </h3>
+            <p class="mb-4">{t.alternatives.email.description}</p>
+            <a
+              href="mailto:support@diktat.ai"
+              class="text-pink-500 hover:text-pink-600 font-bold"
+            >support@diktat.ai</a>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-4">
+              {t.alternatives.videocall.title}
+            </h3>
+            <p class="mb-4">{t.alternatives.videocall.description}</p>
+            <a
+              href="https://meet.brevo.com/steffenstein"
+              target="_blank"
+              class="text-pink-500 hover:text-pink-600 font-bold"
+            >{t.alternatives.videocall.link} &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Response Time Info -->
+      <div class="card bg-base-200 p-6 rounded-2xl border border-base-300 mb-16">
+        <h2 class="font-display text-2xl font-bold mb-4">
+          {t.response.title}
+        </h2>
+        <p class="mb-4">{t.response.description}</p>
+        <p>
+          {t.response.privacyText}
+          {privacyPath && (
+            <a href={privacyPath} class="text-pink-500 hover:text-pink-600 underline">
+              {t.response.privacyLink}
+            </a>
+          )}
+          {t.response.privacySuffix}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Override accent and secondary colors with pink */
+  :global(.text-accent) {
+    color: #ef56a4 !important;
+  }
+
+  :global(.text-secondary) {
+    color: #ef56a4 !important;
+  }
+
+  :global(.bg-accent) {
+    background-color: #ef56a4 !important;
+  }
+
+  :global(.bg-secondary) {
+    background-color: #ef56a4 !important;
+  }
+
+  .card {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Ensure honeypot field is properly hidden */
+  .honeypot-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = document.getElementById('submit-text');
+    const loadingText = document.getElementById('loading-text');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    // Helper to track PostHog events (uses global helper from Layout)
+    function trackEvent(eventName: string, properties: Record<string, any>) {
+      if (typeof (window as any).trackPostHogEvent === 'function') {
+        (window as any).trackPostHogEvent(eventName, properties);
+      }
+    }
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const honeypot = formData.get('website');
+
+        // Check for bot submission
+        if (honeypot) {
+          // If the honeypot field is filled, it's likely a bot
+          console.log('Bot submission detected');
+          successMessage?.classList.remove('hidden');
+          return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitText?.classList.add('hidden');
+        loadingText?.classList.remove('hidden');
+        successMessage?.classList.add('hidden');
+        errorMessage?.classList.add('hidden');
+
+        // Track basic analytics event
+        trackEvent('contact_form_submission', {
+          subject: formData.get('subject'),
+          has_company: !!formData.get('company'),
+          has_phone: !!formData.get('phone'),
+          privacy_accepted: !!formData.get('privacyAccepted'),
+        });
+
+        // Track full form data as backup (excluding sensitive info)
+        const message = formData.get('message') as string;
+        trackEvent('contact_form_submission_full', {
+          subject: formData.get('subject'),
+          email: formData.get('email'),
+          company: formData.get('company'),
+          phone: formData.get('phone'),
+          privacy_accepted: !!formData.get('privacyAccepted'),
+          message: message,
+          message_length: message?.length || 0,
+          timestamp: new Date().toISOString(),
+        });
+
+        try {
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: formData.get('name'),
+              email: formData.get('email'),
+              subject: formData.get('subject'),
+              message: formData.get('message'),
+              company: formData.get('company'),
+              phone: formData.get('phone'),
+            }),
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            successMessage?.classList.remove('hidden');
+            form.reset();
+          } else {
+            errorMessage?.classList.remove('hidden');
+          }
+        } catch (error) {
+          console.error('Error submitting contact form:', error);
+          errorMessage?.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitText?.classList.remove('hidden');
+          loadingText?.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>

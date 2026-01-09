@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RegulatedIndustriesPage from '../components/RegulatedIndustriesPage.astro';
+import { regulatedIndustriesTranslations } from '../i18n/userGroups/regulatedIndustries';
+
+const locale = 'de';
+const t = regulatedIndustriesTranslations[locale];
+---
+
+<Layout
+  title={t.hero.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="regulatedIndustries"
+>
+  <RegulatedIndustriesPage locale={locale} t={t} />
+</Layout>

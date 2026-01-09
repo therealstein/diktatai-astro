@@ -1,0 +1,280 @@
+---
+import '../styles/global.css';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import { localeInfo, type Locale, getLocalePath, type RouteKey } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  locale?: Locale;
+  routeKey?: RouteKey;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  locale = 'de',
+  routeKey,
+  image = '/diktatai-transkribieren.webp',
+  noindex = false
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title.includes('Diktat AI') ? title : `${title} | Diktat AI`;
+
+// Build alternate URLs for hreflang (only if routeKey is provided)
+const alternateUrls = routeKey ? {
+  de: getLocalePath(routeKey, 'de'),
+  en: getLocalePath(routeKey, 'en'),
+  nl: getLocalePath(routeKey, 'nl'),
+  es: getLocalePath(routeKey, 'es'),
+  fr: getLocalePath(routeKey, 'fr'),
+  sv: getLocalePath(routeKey, 'sv'),
+} : null;
+
+// WebApplication Schema
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Diktat AI",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+};
+
+// Organization Schema
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Diktat AI",
+  "url": "https://diktat.ai",
+  "logo": "https://diktat.ai/logo-dai.svg"
+};
+---
+
+<!DOCTYPE html>
+<html lang={localeInfo[locale].language} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Hreflang tags -->
+    {alternateUrls && Object.entries(alternateUrls).map(([lang, path]) => (
+      path && <link rel="alternate" hreflang={lang} href={`https://diktat.ai${path}`} />
+    ))}
+    {alternateUrls?.de && (
+      <link rel="alternate" hreflang="x-default" href={`https://diktat.ai${alternateUrls.de}`} />
+    )}
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload LCP image -->
+    <link rel="preload" href="/herobg.webp" as="image" type="image/webp" fetchpriority="high" />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://ph.diktat.ai" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="preconnect" href="https://ph.diktat.ai" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/PlusJakartaSans-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Diktat AI" />
+    <meta property="og:image" content={`https://diktat.ai${image}`} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://diktat.ai${image}`} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+    <!-- Inline critical font CSS -->
+    <style is:inline>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/Inter-Regular.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        src: url('/fonts/Inter-Medium.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/Inter-Bold.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 500;
+        src: url('/fonts/PlusJakartaSans-Medium.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 600;
+        src: url('/fonts/PlusJakartaSans-SemiBold.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/PlusJakartaSans-Bold.woff2') format('woff2');
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-base-100 text-base-content">
+    <NavBar locale={locale} />
+    <main>
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <ConsentBanner locale={locale} />
+
+    <!-- Google Tag Manager - loaded after user interaction or 3 second delay to reduce LCP impact -->
+    <script is:inline>
+      (function() {
+        var gtmLoaded = false;
+
+        function loadGTM() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+
+          var script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16950089138';
+          script.async = true;
+          document.head.appendChild(script);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'AW-16950089138');
+        }
+
+        // Load GTM after 3 seconds or on user interaction (whichever comes first)
+        var timeout = setTimeout(loadGTM, 3000);
+
+        var interactionEvents = ['mousedown', 'keydown', 'touchstart', 'scroll'];
+        function onInteraction() {
+          clearTimeout(timeout);
+          loadGTM();
+          interactionEvents.forEach(function(event) {
+            window.removeEventListener(event, onInteraction, { capture: true });
+          });
+        }
+
+        interactionEvents.forEach(function(event) {
+          window.addEventListener(event, onInteraction, { capture: true, passive: true });
+        });
+      })();
+    </script>
+
+    <!-- PostHog Analytics (deferred loading to not block LCP) -->
+    <script is:inline>
+      (function() {
+        var posthogLoaded = false;
+
+        function initPostHog() {
+          if (posthogLoaded) return;
+          posthogLoaded = true;
+
+          !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+          posthog.init('phc_rEnn5wxbM2FCvmYNEuRu2w8Onbs5WII8VfKylyZcSBs', {
+            api_host: 'https://ph.diktat.ai',
+            ui_host: 'eu.posthog.com',
+            person_profiles: 'identified_only',
+            capture_pageview: true,
+            capture_pageleave: true,
+            disable_surveys: true,
+            disable_session_recording: true,
+            autocapture: false,
+            capture_dead_clicks: false,
+            capture_performance: false,
+          });
+        }
+
+        // Defer PostHog initialization using requestIdleCallback or 3s timeout
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initPostHog, { timeout: 3000 });
+        } else {
+          setTimeout(initPostHog, 3000);
+        }
+
+        // Global helper for custom event tracking (used by contact form, etc.)
+        window.trackPostHogEvent = function(eventName, properties) {
+          if (window.posthog && window.posthog.capture) {
+            window.posthog.capture(eventName, properties);
+          } else {
+            // Queue the event for when PostHog loads
+            window.posthogEventQueue = window.posthogEventQueue || [];
+            window.posthogEventQueue.push({ event: eventName, properties: properties });
+          }
+        };
+
+        // Process queued events once PostHog is ready
+        var checkPostHog = setInterval(function() {
+          if (window.posthog && window.posthog.capture && window.posthogEventQueue) {
+            window.posthogEventQueue.forEach(function(item) {
+              window.posthog.capture(item.event, item.properties);
+            });
+            window.posthogEventQueue = [];
+            clearInterval(checkPostHog);
+          }
+        }, 500);
+      })();
+    </script>
+  </body>
+</html>

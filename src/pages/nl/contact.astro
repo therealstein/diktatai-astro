@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactPage from '../../components/ContactPage.astro';
+import { contactTranslations } from '../../i18n/userGroups/contact';
+
+const locale = 'nl';
+const t = contactTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="contact"
+>
+  <ContactPage locale={locale} t={t} />
+</Layout>

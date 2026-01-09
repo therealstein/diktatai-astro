@@ -1,0 +1,151 @@
+---
+import { routes } from '../i18n/routes';
+import type { CompaniesTranslation } from '../i18n/userGroups/companies';
+
+interface Props {
+  locale: 'de' | 'en' | 'nl' | 'es' | 'fr' | 'sv';
+  t: CompaniesTranslation;
+}
+
+const { locale, t } = Astro.props;
+
+const getLocalizedPath = (routeKey: keyof typeof routes) => {
+  const route = routes[routeKey];
+  if (!route) return '/';
+  const path = route[locale];
+  return path || route.de || '/';
+};
+---
+
+<div class="bg-base-100 text-base-content">
+  <!-- Hero Section -->
+  <div
+    class="hero min-h-[40vh] relative"
+    style="background: linear-gradient(135deg, #ef56a4 0%, #4a90e2 100%); background-size: cover; background-position: center;"
+  >
+    <div class="hero-content text-center">
+      <div
+        class="backdrop-blur-sm bg-white/10 p-8 rounded-3xl shadow-2xl border border-white/20"
+      >
+        <h1
+          class="font-display text-4xl font-bold text-white mb-2"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.title}
+        </h1>
+        <p
+          class="text-lg text-white"
+          style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7)"
+        >
+          {t.hero.subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="py-16 container mx-auto px-4 max-w-4xl">
+    <div class="prose prose-lg max-w-none">
+      <!-- Introduction -->
+      <div class="mb-12">
+        <p class="text-lg">{t.introduction.paragraph}</p>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="card bg-base-200 shadow-xl mb-12 p-8 rounded-3xl border border-base-300">
+        <h2 class="font-display text-2xl font-bold mb-6">{t.useCasesSection.title}</h2>
+        <p class="mb-6">{t.useCasesSection.paragraph}</p>
+
+        <div class="grid grid-cols-1 gap-6">
+          <!-- Meetings -->
+          <div class="p-4 bg-base-100 rounded-xl shadow border border-base-300">
+            <h3 class="font-bold mb-2">{t.useCasesSection.meetings.title}</h3>
+            <p class="mb-2"><strong>{t.useCasesSection.meetings.whatTitle}:</strong> {t.useCasesSection.meetings.what}</p>
+            <p><strong>{t.useCasesSection.meetings.howTitle}:</strong> {t.useCasesSection.meetings.how}</p>
+          </div>
+
+          <!-- Conversations -->
+          <div class="p-4 bg-base-100 rounded-xl shadow border border-base-300">
+            <h3 class="font-bold mb-2">{t.useCasesSection.conversations.title}</h3>
+            <p class="mb-2"><strong>{t.useCasesSection.conversations.whatTitle}:</strong> {t.useCasesSection.conversations.what}</p>
+            <p><strong>{t.useCasesSection.conversations.howTitle}:</strong> {t.useCasesSection.conversations.how}</p>
+          </div>
+
+          <!-- Notes -->
+          <div class="p-4 bg-base-100 rounded-xl shadow border border-base-300">
+            <h3 class="font-bold mb-2">{t.useCasesSection.notes.title}</h3>
+            <p class="mb-2"><strong>{t.useCasesSection.notes.whatTitle}:</strong> {t.useCasesSection.notes.what}</p>
+            <p><strong>{t.useCasesSection.notes.howTitle}:</strong> {t.useCasesSection.notes.how}</p>
+          </div>
+
+          <!-- Documents -->
+          <div class="p-4 bg-base-100 rounded-xl shadow border border-base-300">
+            <h3 class="font-bold mb-2">{t.useCasesSection.documents.title}</h3>
+            <p class="mb-2"><strong>{t.useCasesSection.documents.whatTitle}:</strong> {t.useCasesSection.documents.what}</p>
+            <p><strong>{t.useCasesSection.documents.howTitle}:</strong> {t.useCasesSection.documents.how}</p>
+          </div>
+
+          <!-- Content -->
+          <div class="p-4 bg-base-100 rounded-xl shadow border border-base-300">
+            <h3 class="font-bold mb-2">{t.useCasesSection.content.title}</h3>
+            <p class="mb-2"><strong>{t.useCasesSection.content.whatTitle}:</strong> {t.useCasesSection.content.what}</p>
+            <p><strong>{t.useCasesSection.content.howTitle}:</strong> {t.useCasesSection.content.how}</p>
+          </div>
+
+          <!-- Training -->
+          <div class="p-4 bg-base-100 rounded-xl shadow border border-base-300">
+            <h3 class="font-bold mb-2">{t.useCasesSection.training.title}</h3>
+            <p class="mb-2"><strong>{t.useCasesSection.training.whatTitle}:</strong> {t.useCasesSection.training.what}</p>
+            <p><strong>{t.useCasesSection.training.howTitle}:</strong> {t.useCasesSection.training.how}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div class="card bg-base-200 shadow-xl mb-12 p-8 rounded-3xl border border-base-300">
+        <h2 class="font-display text-2xl font-bold mb-6">{t.benefitsSection.title}</h2>
+        <p class="mb-6">{t.benefitsSection.paragraph}</p>
+        <ul class="space-y-4">
+          {t.benefitsSection.points.map((point) => (
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500 mr-3 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Integration Section -->
+      <div class="mb-12">
+        <h2 class="font-display text-2xl font-bold mb-6">{t.integrationSection.title}</h2>
+        <p class="text-lg">{t.integrationSection.paragraph}</p>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="card bg-gradient-to-br from-pink-500/10 to-purple-500/10 shadow-xl p-8 rounded-3xl border border-pink-500/20">
+        <h3 class="font-display text-2xl font-bold mb-4 text-center">{t.cta.title}</h3>
+        <p class="text-lg text-center mb-8">{t.cta.paragraph}</p>
+        <div class="text-center">
+          <a href={getLocalizedPath('contact')}>
+            <button class="font-display bg-pink-500 text-white text-xl font-bold py-3 px-8 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide">
+              {t.cta.button}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.card {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+</style>

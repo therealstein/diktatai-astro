@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EuAiLawPage from '../components/EuAiLawPage.astro';
+import { euAiLawTranslations } from '../i18n/userGroups/euAiLaw';
+
+const locale = 'de';
+const t = euAiLawTranslations[locale];
+---
+
+<Layout
+  title={t.hero.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="euAiLaw"
+>
+  <EuAiLawPage locale={locale} t={t} />
+</Layout>

@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const questions = await getCollection('questions');
+  return questions
+    .filter(q => q.data.locale === 'de')
+    .map((question) => ({
+      params: { slug: question.slug.replace('de/', '') },
+      props: { question },
+    }));
+}
+
+const { question } = Astro.props;
+const { Content } = await question.render();
+const locale = 'de';
+---
+
+<Layout
+  title={`${question.data.title} - Diktat AI`}
+  description={question.data.description}
+  locale={locale}
+  routeKey="questions"
+>
+  <div class="min-h-screen bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-white/40 py-12">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <article class="bg-white/70 backdrop-blur-sm border border-indigo-200/50 rounded-2xl p-8 shadow-lg">
+        <header class="mb-8 text-center border-b border-indigo-200/30 pb-6">
+          <h1 class="text-3xl font-bold text-gray-800 mb-4">{question.data.title}</h1>
+          <div class="h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto"></div>
+        </header>
+
+        <div class="prose-custom">
+          <Content />
+        </div>
+
+        <footer class="mt-12 pt-8 border-t border-indigo-200/30">
+          <a
+            href="/fragen"
+            class="inline-flex items-center text-indigo-600 hover:text-purple-600 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Zurück zu allen Fragen
+          </a>
+        </footer>
+      </article>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .prose-custom {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .prose-custom :global(h1) {
+    @apply text-3xl font-bold text-gray-800 mb-6 mt-8;
+  }
+
+  .prose-custom :global(h1:first-child) {
+    @apply mt-0;
+  }
+
+  .prose-custom :global(h2) {
+    @apply text-2xl font-semibold text-gray-800 mb-4 mt-8;
+  }
+
+  .prose-custom :global(h3) {
+    @apply text-xl font-semibold text-gray-800 mb-3 mt-6;
+  }
+
+  .prose-custom :global(p) {
+    @apply text-gray-700 mb-4 leading-relaxed;
+  }
+
+  .prose-custom :global(ul) {
+    @apply list-disc list-inside space-y-2 mb-4 text-gray-700;
+  }
+
+  .prose-custom :global(ol) {
+    @apply list-decimal list-inside space-y-2 mb-4 text-gray-700;
+  }
+
+  .prose-custom :global(li) {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .prose-custom :global(strong) {
+    @apply font-semibold text-gray-800;
+  }
+
+  .prose-custom :global(a) {
+    @apply text-indigo-600 hover:text-purple-600 underline transition-colors duration-200;
+  }
+
+  .prose-custom :global(blockquote) {
+    @apply border-l-4 border-indigo-300 pl-4 italic text-gray-600 my-4;
+  }
+</style>

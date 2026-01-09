@@ -1,0 +1,453 @@
+---
+import { routes } from '../i18n/routes';
+import type { ContentCreatorsTranslation } from '../i18n/userGroups/contentcreators';
+
+interface Props {
+  locale: 'de' | 'en' | 'nl' | 'es' | 'fr' | 'sv';
+  t: ContentCreatorsTranslation;
+}
+
+const { locale, t } = Astro.props;
+const registerUrl = 'https://app.diktat.ai/register';
+
+// Get localized routes
+const howItWorksRoute = routes.howItWorks[locale];
+const contactRoute = routes.contact[locale];
+const pricingRoute = routes.pricing[locale];
+---
+
+<div class="bg-base-100 text-base-content">
+  <!-- Hero Section -->
+  <div
+    class="hero min-h-[50vh] relative"
+    style="background: linear-gradient(135deg, #ef56a4 0%, #4a90e2 100%); background-size: cover; background-position: center;"
+  >
+    <div class="hero-content text-center">
+      <div class="backdrop-blur-sm bg-white/10 p-8 rounded-3xl shadow-2xl border border-white/20 max-w-3xl">
+        <h1 class="font-display text-4xl font-bold text-white mb-4" style="text-shadow: 0 0 5px rgba(0,0,0,0.7)">
+          {t.hero.title}
+        </h1>
+        <p class="text-xl text-white mb-8" style="text-shadow: 0 0 5px rgba(0,0,0,0.7)">
+          {t.hero.subtitle}
+        </p>
+        <a href={registerUrl}>
+          <button class="font-display bg-white text-pink-500 text-xl font-bold py-4 px-8 rounded-full hover:bg-gray-100 transition-all shadow-lg tracking-wide">
+            {t.hero.cta}
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="py-16 container mx-auto px-4 max-w-4xl">
+    <div class="prose prose-lg max-w-none">
+      <!-- Creator Tools Section -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.creatorTools.title}
+        </h2>
+        <p class="text-lg mb-8">
+          {t.creatorTools.intro}
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-3">
+              {t.creatorTools.podcasters.title}
+            </h3>
+            <p>
+              {t.creatorTools.podcasters.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-3">
+              {t.creatorTools.youtubers.title}
+            </h3>
+            <p>
+              {t.creatorTools.youtubers.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-3">
+              {t.creatorTools.bloggers.title}
+            </h3>
+            <p>
+              {t.creatorTools.bloggers.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-3">
+              {t.creatorTools.socialMedia.title}
+            </h3>
+            <p>
+              {t.creatorTools.socialMedia.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-3">
+              {t.creatorTools.courseCreators.title}
+            </h3>
+            <p>
+              {t.creatorTools.courseCreators.description}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process Section -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.process.title}
+        </h2>
+        <p class="text-lg mb-8 text-center">
+          {t.process.subtitle}
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold mr-4">
+                1
+              </div>
+              <h3 class="font-display text-xl font-bold">
+                {t.process.steps.upload.title}
+              </h3>
+            </div>
+            <p>
+              {t.process.steps.upload.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold mr-4">
+                2
+              </div>
+              <h3 class="font-display text-xl font-bold">
+                {t.process.steps.transcription.title}
+              </h3>
+            </div>
+            <p>
+              {t.process.steps.transcription.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold mr-4">
+                3
+              </div>
+              <h3 class="font-display text-xl font-bold">
+                {t.process.steps.security.title}
+              </h3>
+            </div>
+            <p>
+              {t.process.steps.security.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold mr-4">
+                4
+              </div>
+              <h3 class="font-display text-xl font-bold">
+                {t.process.steps.ready.title}
+              </h3>
+            </div>
+            <p>
+              {t.process.steps.ready.description}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advantages Section -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.advantages.title}
+        </h2>
+        <p class="text-lg mb-8 text-center">
+          {t.advantages.subtitle}
+        </p>
+
+        <div class="space-y-6">
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-display text-xl font-bold mb-2">
+                  {t.advantages.timeSaving.title}
+                </h3>
+                <p>
+                  {t.advantages.timeSaving.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-display text-xl font-bold mb-2">
+                  {t.advantages.contentOutput.title}
+                </h3>
+                <p>
+                  {t.advantages.contentOutput.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-display text-xl font-bold mb-2">
+                  {t.advantages.preciseTexts.title}
+                </h3>
+                <p>
+                  {t.advantages.preciseTexts.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-display text-xl font-bold mb-2">
+                  {t.advantages.accessibility.title}
+                </h3>
+                <p>
+                  {t.advantages.accessibility.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-500 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-display text-xl font-bold mb-2">
+                  {t.advantages.focus.title}
+                </h3>
+                <p>
+                  {t.advantages.focus.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow Integration Section -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.workflow.title}
+        </h2>
+        <p class="text-lg mb-8 text-center">
+          {t.workflow.subtitle}
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-4">
+              {t.workflow.email.title}
+            </h3>
+            <p class="mb-4">
+              {t.workflow.email.description}
+            </p>
+            <a href={howItWorksRoute} class="text-pink-500 hover:text-pink-600 font-bold">
+              {t.workflow.email.link} &rarr;
+            </a>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h3 class="font-display text-xl font-bold mb-4">
+              {t.workflow.api.title}
+            </h3>
+            <p class="mb-4">
+              {t.workflow.api.description}
+            </p>
+            <a href={contactRoute} class="btn btn-primary">
+              {t.workflow.api.link}
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h4 class="font-display text-lg font-bold mb-2">
+              {t.workflow.features.flexibility.title}
+            </h4>
+            <p>
+              {t.workflow.features.flexibility.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h4 class="font-display text-lg font-bold mb-2">
+              {t.workflow.features.efficiency.title}
+            </h4>
+            <p>
+              {t.workflow.features.efficiency.description}
+            </p>
+          </div>
+
+          <div class="card bg-base-200 p-6 rounded-2xl border border-base-300">
+            <h4 class="font-display text-lg font-bold mb-2">
+              {t.workflow.features.seamlessness.title}
+            </h4>
+            <p>
+              {t.workflow.features.seamlessness.description}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold mb-8 text-center">
+          {t.faq.title}
+        </h2>
+        <div class="space-y-6">
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" checked />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.benefits.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.benefits.answer}
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.suitability.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.suitability.answer}
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.timeSaving.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.timeSaving.answer}
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.security.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.security.answer}
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.accuracy.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.accuracy.answer}
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.videoSupport.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.videoSupport.answer}
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus bg-base-200 rounded-2xl">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-display text-xl font-bold">
+              {t.faq.questions.easeOfUse.question}
+            </div>
+            <div class="collapse-content">
+              <p>
+                {t.faq.questions.easeOfUse.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA Section -->
+      <div class="card bg-gradient-to-br from-pink-500/10 to-blue-500/10 shadow-xl p-8 rounded-3xl border border-pink-500/20">
+        <h2 class="font-display text-3xl font-bold mb-4 text-center">
+          {t.finalCta.title}
+        </h2>
+        <p class="text-lg text-center mb-8">
+          {t.finalCta.subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={registerUrl}>
+            <button class="btn btn-primary btn-lg">
+              {t.finalCta.buttons.start}
+            </button>
+          </a>
+          <a href={pricingRoute}>
+            <button class="btn btn-outline btn-lg">
+              {t.finalCta.buttons.pricing}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.card {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+</style>

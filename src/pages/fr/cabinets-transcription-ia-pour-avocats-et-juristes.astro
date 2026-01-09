@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LawyersPage from '../../components/LawyersPage.astro';
+import { lawyersTranslations } from '../../i18n/userGroups/lawyers';
+
+const locale = 'fr';
+const t = lawyersTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="lawyers"
+>
+  <LawyersPage locale={locale} t={t} />
+</Layout>

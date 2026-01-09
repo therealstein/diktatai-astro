@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HelpPage from '../../components/HelpPage.astro';
+import { helpTranslations } from '../../i18n/help';
+
+const locale = 'nl';
+const t = helpTranslations[locale];
+---
+
+<Layout
+  title={t.seo.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="help"
+>
+  <HelpPage locale={locale} t={t} />
+</Layout>

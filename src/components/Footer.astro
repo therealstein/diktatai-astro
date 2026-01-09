@@ -1,0 +1,208 @@
+---
+import { getTranslation, getLocalePath, locales, localeInfo, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  hideLanguageSelector?: boolean;
+}
+
+const { locale, hideLanguageSelector = false } = Astro.props;
+const t = getTranslation(locale);
+const currentYear = new Date().getFullYear();
+
+// Get paths for all footer links
+const coachesPath = getLocalePath('coaches', locale);
+const contentcreatorsPath = getLocalePath('contentcreators', locale);
+const lawyersPath = getLocalePath('lawyers', locale);
+const mediaPath = getLocalePath('media', locale);
+const studentsPath = getLocalePath('students', locale);
+const salesPath = getLocalePath('sales', locale);
+const termsPath = getLocalePath('terms', locale);
+const privacyPath = getLocalePath('privacy', locale);
+const datasafetyPath = getLocalePath('datasafety', locale);
+const imprintPath = getLocalePath('imprint', locale);
+const pricingPath = getLocalePath('pricing', locale);
+const aboutPath = getLocalePath('about', locale);
+const helpPath = getLocalePath('help', locale);
+const contactPath = getLocalePath('contact', locale);
+
+// Available locales for language switcher (excluding current)
+const availableLocales = locales.filter(l => l !== locale);
+---
+
+<footer class="bg-base-100 border-t">
+  <!-- Main footer content -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col lg:flex-row lg:justify-between">
+      <!-- Brand section -->
+      <div class="space-y-4 mb-10 lg:mb-0 lg:max-w-xs">
+        <h2 class="font-display text-2xl font-bold">{t('footer.title')}</h2>
+        <p class="text-sm text-gray-500">
+          {t('footer.description')}
+        </p>
+      </div>
+
+      <!-- Link sections -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
+        <div>
+          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.professions')}</h3>
+          <ul class="mt-4 space-y-3">
+            {coachesPath && (
+              <li>
+                <a href={coachesPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.consultants')}
+                </a>
+              </li>
+            )}
+            {contentcreatorsPath && (
+              <li>
+                <a href={contentcreatorsPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.contentCreators')}
+                </a>
+              </li>
+            )}
+            {lawyersPath && (
+              <li>
+                <a href={lawyersPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.lawyers')}
+                </a>
+              </li>
+            )}
+            {mediaPath && (
+              <li>
+                <a href={mediaPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.journalists')}
+                </a>
+              </li>
+            )}
+            {studentsPath && (
+              <li>
+                <a href={studentsPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.students')}
+                </a>
+              </li>
+            )}
+            {salesPath && (
+              <li>
+                <a href={salesPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.businessLeaders')}
+                </a>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.legal')}</h3>
+          <ul class="mt-4 space-y-3">
+            {termsPath && (
+              <li>
+                <a href={termsPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.terms')}
+                </a>
+              </li>
+            )}
+            {privacyPath && (
+              <li>
+                <a href={privacyPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.privacy')}
+                </a>
+              </li>
+            )}
+            {datasafetyPath && (
+              <li>
+                <a href={datasafetyPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.aiSecurity')}
+                </a>
+              </li>
+            )}
+            {imprintPath && (
+              <li>
+                <a href={imprintPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.imprint')}
+                </a>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.company')}</h3>
+          <ul class="mt-4 space-y-3">
+            {pricingPath && (
+              <li>
+                <a href={pricingPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.pricing')}
+                </a>
+              </li>
+            )}
+            {aboutPath && (
+              <li>
+                <a href={aboutPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.about')}
+                </a>
+              </li>
+            )}
+            {helpPath && (
+              <li>
+                <a href={helpPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.help')}
+                </a>
+              </li>
+            )}
+            {contactPath && (
+              <li>
+                <a href={contactPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.contact')}
+                </a>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.compliance')}</h3>
+          <ul class="mt-4 space-y-3">
+            <li class="text-sm">
+              <div class="flex items-center gap-2 mb-1">
+                <img src="/EU.svg" alt="EU Flag" class="w-4 h-4" />
+                <img src="/DE.svg" alt="German Flag" class="w-4 h-4" />
+                <span>{t('footer.gdpr')}</span>
+              </div>
+              <div>{t('footer.aiDataProcessing')}</div>
+            </li>
+            <li class="text-sm flex items-center gap-2">
+              <img src="/UA.svg" alt="Ukraine Flag" class="w-4 h-4" onerror="this.style.display='none'" />
+              {t('footer.standWithUkraine')}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom section with copyright -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500">{t('footer.copyright', { year: currentYear })}</p>
+        <div class="mt-4 md:mt-0 flex items-center space-x-3">
+          <div class="flex items-center gap-2">
+            <img src={localeInfo[locale].flag} alt={`${localeInfo[locale].name} Flag`} class="w-4 h-4" />
+            <span class="text-sm text-gray-500">{localeInfo[locale].name}</span>
+          </div>
+          {!hideLanguageSelector && availableLocales.map((l) => {
+            const path = getLocalePath('index', l);
+            return path && (
+              <a
+                href={path}
+                class="flex items-center gap-2 text-sm hover:text-primary transition-colors"
+              >
+                <img src={localeInfo[l].flag} alt={`${localeInfo[l].name} Flag`} class="w-4 h-4" />
+                {localeInfo[l].name}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

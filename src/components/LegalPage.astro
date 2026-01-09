@@ -1,0 +1,126 @@
+---
+interface Props {
+  title: string;
+  content: string;
+}
+
+const { title, content } = Astro.props;
+---
+
+<div class="min-h-screen bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-white/40 py-12">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <!-- Main Content Card -->
+    <div class="bg-white/70 backdrop-blur-sm border border-indigo-200/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-200">
+      <section class="space-y-6">
+        <!-- Title with gradient -->
+        <div class="text-center pb-6 border-b border-indigo-200/30">
+          <h1 class="text-4xl font-bold bg-gradient-to-r text-black mb-2">
+            {title}
+          </h1>
+          <div class="h-1 w-24 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="prose-custom" set:html={content}></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<style>
+  .prose-custom {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .prose-custom :global(h1) {
+    @apply text-3xl font-bold text-gray-800 mb-6 mt-8;
+  }
+
+  .prose-custom :global(h1:first-child) {
+    @apply mt-0;
+  }
+
+  .prose-custom :global(h2) {
+    @apply text-2xl font-semibold text-gray-800 mb-4 mt-8 border-b border-indigo-200/30 pb-2;
+  }
+
+  .prose-custom :global(h2:first-child) {
+    @apply mt-0;
+  }
+
+  .prose-custom :global(h3) {
+    @apply text-xl font-semibold text-gray-800 mb-3 mt-6;
+  }
+
+  .prose-custom :global(h3:first-child) {
+    @apply mt-0;
+  }
+
+  .prose-custom :global(h4) {
+    @apply text-lg font-medium text-gray-800 mb-2 mt-4;
+  }
+
+  .prose-custom :global(h4:first-child) {
+    @apply mt-0;
+  }
+
+  .prose-custom :global(p) {
+    @apply text-gray-700 mb-4 leading-relaxed;
+  }
+
+  .prose-custom :global(ul) {
+    @apply list-disc list-inside space-y-2 mb-4 text-gray-700;
+  }
+
+  .prose-custom :global(ol) {
+    @apply list-decimal list-inside space-y-2 mb-4 text-gray-700;
+  }
+
+  .prose-custom :global(li) {
+    @apply text-gray-700 leading-relaxed;
+  }
+
+  .prose-custom :global(strong) {
+    @apply font-semibold text-gray-800;
+  }
+
+  .prose-custom :global(em) {
+    @apply italic text-gray-700;
+  }
+
+  .prose-custom :global(a) {
+    @apply text-indigo-600 hover:text-purple-600 underline transition-colors duration-200;
+  }
+
+  .prose-custom :global(blockquote) {
+    @apply border-l-4 border-indigo-300 pl-4 italic text-gray-600 my-4;
+  }
+
+  .prose-custom :global(code) {
+    @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800;
+  }
+
+  .prose-custom :global(pre) {
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm;
+  }
+
+  .prose-custom :global(table) {
+    @apply w-full border-collapse border border-gray-300 my-4;
+  }
+
+  .prose-custom :global(th) {
+    @apply bg-indigo-50 border border-gray-300 px-4 py-2 font-semibold text-gray-800;
+  }
+
+  .prose-custom :global(td) {
+    @apply border border-gray-300 px-4 py-2 text-gray-700;
+  }
+
+  .prose-custom :global(hr) {
+    @apply border-t border-indigo-200/50 my-8;
+  }
+
+  .prose-custom :global(section) {
+    @apply mb-8;
+  }
+</style>

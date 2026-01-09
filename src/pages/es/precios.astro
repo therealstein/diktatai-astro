@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PricingPage from '../../components/PricingPage.astro';
+import { pricingTranslations } from '../../i18n/pricing';
+
+const locale = 'es';
+const t = pricingTranslations[locale];
+---
+
+<Layout
+  title={t.meta.title}
+  description={t.meta.description}
+  locale={locale}
+  routeKey="pricing"
+>
+  <PricingPage locale={locale} t={t} />
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const locale = 'de';
+const allQuestions = await getCollection('questions');
+const questions = allQuestions
+  .filter(q => q.data.locale === 'de')
+  .sort((a, b) => a.data.title.localeCompare(b.data.title, 'de'));
+---
+
+<Layout
+  title="Häufig gestellte Fragen - Diktat AI"
+  description="Antworten auf häufige Fragen zu Spracherkennung, Diktat und Transkription."
+  locale={locale}
+  routeKey="questions"
+>
+  <div class="min-h-screen bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-white/40 py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-4xl font-bold text-center mb-8">Häufig gestellte Fragen</h1>
+      <p class="text-lg text-center text-gray-600 mb-12">
+        Antworten auf Ihre Fragen zu Spracherkennung und Transkription
+      </p>
+
+      <div class="space-y-4">
+        {questions.map((question) => (
+          <article class="bg-white/70 backdrop-blur-sm border border-indigo-200/50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-200">
+            <a href={`/fragen/${question.slug.replace('de/', '')}`} class="block">
+              <h2 class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">
+                {question.data.title}
+              </h2>
+              <p class="text-gray-600 mt-2 line-clamp-2">{question.data.description}</p>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

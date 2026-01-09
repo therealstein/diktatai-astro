@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Block internal paths
+Disallow: /api/
+Disallow: /app/
+Disallow: /opt/
+Disallow: /general/
+
+# Block URLs with query parameters (tracking, form params)
+Disallow: /*?grund=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Sitemaps for all locales
+Sitemap: https://diktat.ai/sitemap_index.xml
+Sitemap: https://diktat.ai/__sitemap__/de-DE.xml
+Sitemap: https://diktat.ai/__sitemap__/en-US.xml
+Sitemap: https://diktat.ai/__sitemap__/nl-NL.xml
+Sitemap: https://diktat.ai/__sitemap__/es-ES.xml
+Sitemap: https://diktat.ai/__sitemap__/fr-FR.xml
+Sitemap: https://diktat.ai/__sitemap__/sv-SE.xml

@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { legalTranslations } from '../i18n/legal';
+import { termsContent } from '../i18n/legal-content/terms';
+
+const locale = 'de';
+const t = legalTranslations.terms[locale];
+---
+
+<Layout
+  title={t.meta.title}
+  description={t.meta.description}
+  locale={locale}
+  routeKey="terms"
+  noindex={true}
+>
+  <LegalPage title={t.title} content={termsContent[locale]} />
+</Layout>

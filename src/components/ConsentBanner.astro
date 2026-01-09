@@ -1,0 +1,142 @@
+---
+import { getLocalePath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const privacyPath = getLocalePath('privacy', locale);
+
+// Translations for all 6 locales
+const translations = {
+  en: {
+    message: "We use cookies.",
+    readMore: "Read more in our Privacy Policy",
+    accept: "Accept",
+    decline: "Decline"
+  },
+  de: {
+    message: "Wir nutzen Cookies.",
+    readMore: "Lesen Sie mehr in unserer Datenschutzerklärung",
+    accept: "Akzeptieren",
+    decline: "Ablehnen"
+  },
+  nl: {
+    message: "Wij gebruiken cookies.",
+    readMore: "Lees meer in ons Privacybeleid",
+    accept: "Accepteren",
+    decline: "Weigeren"
+  },
+  es: {
+    message: "Utilizamos cookies.",
+    readMore: "Lea más en nuestra Política de Privacidad",
+    accept: "Aceptar",
+    decline: "Rechazar"
+  },
+  fr: {
+    message: "Nous utilisons des cookies.",
+    readMore: "En savoir plus dans notre Politique de Confidentialité",
+    accept: "Accepter",
+    decline: "Refuser"
+  },
+  sv: {
+    message: "Vi använder cookies.",
+    readMore: "Läs mer i vår Integritetspolicy",
+    accept: "Acceptera",
+    decline: "Avvisa"
+  }
+};
+
+const t = translations[locale] || translations.de;
+---
+
+<div id="consent-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden">
+  <div class="bg-white/90 p-4 text-sm shadow-lg backdrop-blur-sm">
+    <div class="container mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex flex-col gap-1">
+        <span>{t.message}</span>
+        {privacyPath && (
+          <a href={privacyPath} class="link link-primary text-xs">
+            {t.readMore}
+          </a>
+        )}
+      </div>
+      <div class="flex gap-2">
+        <button
+          id="consent-decline"
+          class="btn btn-sm btn-ghost"
+        >
+          {t.decline}
+        </button>
+        <button
+          id="consent-accept"
+          class="btn btn-sm btn-primary"
+        >
+          {t.accept}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    var banner = document.getElementById('consent-banner');
+    var acceptBtn = document.getElementById('consent-accept');
+    var declineBtn = document.getElementById('consent-decline');
+
+    function sendPositiveSignal() {
+      // Consent Mode Signal for Google
+      if (window.gtag) {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+      console.log('Consent granted - positive signal sent');
+    }
+
+    function handleConsent(accepted) {
+      // Always hide the banner
+      if (banner) {
+        banner.classList.add('hidden');
+      }
+      // Store that consent was given (regardless of accept/decline)
+      localStorage.setItem('consent_shown', 'true');
+      // Only send positive signal if accepted
+      if (accepted) {
+        localStorage.setItem('consent_accepted', 'true');
+        sendPositiveSignal();
+      }
+    }
+
+    // Check if consent was already given
+    if (localStorage.getItem('consent_shown')) {
+      // If consent was already accepted, send positive signal
+      if (localStorage.getItem('consent_accepted')) {
+        sendPositiveSignal();
+      }
+    } else {
+      // Show banner if consent hasn't been given
+      if (banner) {
+        banner.classList.remove('hidden');
+      }
+    }
+
+    // Event listeners
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function() {
+        handleConsent(true);
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', function() {
+        handleConsent(false);
+      });
+    }
+  })();
+</script>

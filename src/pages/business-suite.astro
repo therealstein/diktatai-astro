@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BusinessSuitePage from '../components/BusinessSuitePage.astro';
+import { businessSuiteTranslations } from '../i18n/userGroups/businessSuite';
+
+const locale = 'de';
+const t = businessSuiteTranslations[locale];
+---
+
+<Layout
+  title={t.hero.title}
+  description={t.seo.description}
+  locale={locale}
+  routeKey="businessSuite"
+>
+  <BusinessSuitePage locale={locale} t={t} />
+</Layout>
