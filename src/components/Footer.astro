@@ -1,12 +1,13 @@
 ---
-import { getTranslation, getLocalePath, locales, localeInfo, type Locale } from '../i18n/utils';
+import { getTranslation, getLocalePath, locales, localeInfo, type Locale, type RouteKey } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
+  routeKey?: RouteKey;
   hideLanguageSelector?: boolean;
 }
 
-const { locale, hideLanguageSelector = false } = Astro.props;
+const { locale, routeKey, hideLanguageSelector = false } = Astro.props;
 const t = getTranslation(locale);
 const currentYear = new Date().getFullYear();
 
@@ -22,6 +23,7 @@ const privacyPath = getLocalePath('privacy', locale);
 const datasafetyPath = getLocalePath('datasafety', locale);
 const imprintPath = getLocalePath('imprint', locale);
 const pricingPath = getLocalePath('pricing', locale);
+const technologyPath = getLocalePath('aiSpeechRecognition', locale);
 const aboutPath = getLocalePath('about', locale);
 const helpPath = getLocalePath('help', locale);
 const contactPath = getLocalePath('contact', locale);
@@ -136,6 +138,13 @@ const availableLocales = locales.filter(l => l !== locale);
                 </a>
               </li>
             )}
+            {technologyPath && (
+              <li>
+                <a href={technologyPath} class="text-sm hover:text-primary transition-colors">
+                  {t('footer.technology')}
+                </a>
+              </li>
+            )}
             {aboutPath && (
               <li>
                 <a href={aboutPath} class="text-sm hover:text-primary transition-colors">
@@ -190,10 +199,13 @@ const availableLocales = locales.filter(l => l !== locale);
             <span class="text-sm text-gray-500">{localeInfo[locale].name}</span>
           </div>
           {!hideLanguageSelector && availableLocales.map((l) => {
-            const path = getLocalePath('index', l);
-            return path && (
+            // Use current page's route if available, otherwise fallback to index
+            const path = routeKey ? getLocalePath(routeKey, l) : getLocalePath('index', l);
+            // If route doesn't exist for this locale, fallback to index
+            const finalPath = path || getLocalePath('index', l);
+            return finalPath && (
               <a
-                href={path}
+                href={finalPath}
                 class="flex items-center gap-2 text-sm hover:text-primary transition-colors"
               >
                 <img src={localeInfo[l].flag} alt={`${localeInfo[l].name} Flag`} class="w-4 h-4" />

@@ -8,6 +8,7 @@ interface Props {
 
 const { locale, t } = Astro.props;
 const howItWorksPath = getLocalePath('howItWorks', locale);
+const aiSpeechRecognitionPath = getLocalePath('aiSpeechRecognition', locale);
 const termsPath = getLocalePath('terms', locale);
 const businessSuitePath = getLocalePath('businessSuite', locale);
 const contactPath = getLocalePath('contact', locale);
@@ -455,6 +456,11 @@ const promo = promoTranslations[locale] || promoTranslations.de;
           </div>
           <h4 class="text-xl font-semibold text-gray-800 mb-3">{t.features.processing.title}</h4>
           <p class="text-gray-600 leading-relaxed">{t.features.processing.description}</p>
+          {aiSpeechRecognitionPath && (
+            <a href={aiSpeechRecognitionPath} class="inline-block mt-3 text-indigo-600 hover:text-purple-600 text-sm font-medium">
+              {locale === 'de' ? 'Mehr zur Technologie' : locale === 'en' ? 'Learn more' : locale === 'nl' ? 'Meer info' : locale === 'es' ? 'Más información' : locale === 'fr' ? 'En savoir plus' : 'Läs mer'} →
+            </a>
+          )}
         </div>
       </div>
     </div>

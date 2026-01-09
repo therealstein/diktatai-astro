@@ -20,6 +20,8 @@ interface Props {
 const { locale, t } = Astro.props;
 const pricingPath = getLocalePath('pricing', locale);
 const helpPath = getLocalePath('help', locale);
+const aiSpeechRecognitionPath = getLocalePath('aiSpeechRecognition', locale);
+const homePath = getLocalePath('index', locale);
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -196,6 +198,17 @@ const helpPath = getLocalePath('help', locale);
               {t.cta.help}
             </a>
           )}
+        </div>
+        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+          {aiSpeechRecognitionPath && (
+            <a href={aiSpeechRecognitionPath} class="text-pink-500 hover:text-pink-600 font-medium">
+              {locale === 'de' ? 'Unsere KI-Technologie' : locale === 'en' ? 'Our AI technology' : locale === 'nl' ? 'Onze AI-technologie' : locale === 'es' ? 'Nuestra tecnología IA' : locale === 'fr' ? 'Notre technologie IA' : 'Vår AI-teknik'} →
+            </a>
+          )}
+          <span class="text-gray-400">|</span>
+          <a href={homePath || '/'} class="text-pink-500 hover:text-pink-600 font-medium">
+            {locale === 'de' ? 'Zurück zur Startseite' : locale === 'en' ? 'Back to home' : locale === 'nl' ? 'Terug naar home' : locale === 'es' ? 'Volver al inicio' : locale === 'fr' ? 'Retour à l\'accueil' : 'Tillbaka till startsidan'} →
+          </a>
         </div>
       </div>
     </div>

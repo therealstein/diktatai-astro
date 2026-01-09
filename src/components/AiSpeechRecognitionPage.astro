@@ -43,6 +43,8 @@ interface Props {
 
 const { locale, t } = Astro.props;
 const pricingPath = getLocalePath('pricing', locale);
+const howItWorksPath = getLocalePath('howItWorks', locale);
+const homePath = getLocalePath('index', locale);
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -198,6 +200,17 @@ const pricingPath = getLocalePath('pricing', locale);
               {t.cta.pricing}
             </a>
           )}
+        </div>
+        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+          {howItWorksPath && (
+            <a href={howItWorksPath} class="text-pink-500 hover:text-pink-600 font-medium">
+              {locale === 'de' ? 'So funktioniert es' : locale === 'en' ? 'How it works' : locale === 'nl' ? 'Hoe het werkt' : locale === 'es' ? 'Cómo funciona' : locale === 'fr' ? 'Comment ça marche' : 'Hur det fungerar'} →
+            </a>
+          )}
+          <span class="text-gray-400">|</span>
+          <a href={homePath || '/'} class="text-pink-500 hover:text-pink-600 font-medium">
+            {locale === 'de' ? 'Zurück zur Startseite' : locale === 'en' ? 'Back to home' : locale === 'nl' ? 'Terug naar home' : locale === 'es' ? 'Volver al inicio' : locale === 'fr' ? 'Retour à l\'accueil' : 'Tillbaka till startsidan'} →
+          </a>
         </div>
       </div>
     </div>

@@ -15,6 +15,7 @@ const howItWorksRoute = routes.howItWorks[locale];
 const contactRoute = routes.contact[locale];
 const pricingRoute = routes.pricing[locale];
 const datasafetyRoute = routes.datasafety[locale];
+const aiSpeechRecognitionRoute = routes.aiSpeechRecognition[locale];
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -238,6 +239,10 @@ const datasafetyRoute = routes.datasafety[locale];
           <span class="text-gray-400">|</span>
           <a href={datasafetyRoute} class="text-pink-500 hover:underline">
             {t.finalCta.securityArchitecture}
+          </a>
+          <span class="text-gray-400">|</span>
+          <a href={aiSpeechRecognitionRoute} class="text-pink-500 hover:underline">
+            {locale === 'de' ? 'KI-Technologie' : locale === 'en' ? 'AI Technology' : locale === 'nl' ? 'AI-technologie' : locale === 'es' ? 'Tecnología IA' : locale === 'fr' ? 'Technologie IA' : 'AI-teknik'}
           </a>
         </div>
       </div>
