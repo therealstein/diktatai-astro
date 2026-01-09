@@ -21,7 +21,7 @@ This checklist tracks the migration of all content from Nuxt to Astro.
 
 | Nuxt Page | Astro Page | Status |
 |-----------|------------|--------|
-| lawyers.vue | kanzleien-transkription-fuer-anwaelte-refas-und-juristen.astro | ✅ Complete |
+| lawyers.vue | juristen-und-anwaelte-diktate-mandantengespraeche-dsgvo-konform-aufzeichnen.astro | ✅ Complete |
 | students.vue | studenten-transkription-fuer-studierende-und-akademiker.astro | ✅ Complete |
 | coaches.vue | berater-und-coaches-kundengespraeche-sitzungen-effizient-dokumentieren.astro | ✅ Complete |
 | media.vue | journalisten-und-redakteure-interviews-pressekonferenzen-recherche-aufnahmen-umwandeln.astro | ✅ Complete |

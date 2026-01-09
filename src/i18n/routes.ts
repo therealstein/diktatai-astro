@@ -81,7 +81,7 @@ export const routes = {
     sv: '/sv/innehallsskapare-transkribera-shownotes-undertexter-bloggartiklar',
   },
   lawyers: {
-    de: '/kanzleien-transkription-fuer-anwaelte-refas-und-juristen',
+    de: '/juristen-und-anwaelte-diktate-mandantengespraeche-dsgvo-konform-aufzeichnen',
     en: '/en/law-firms-ai-transcription-for-lawyers-and-legal-professionals',
     nl: '/nl/advocatenkantoren-ai-transcriptie-voor-advocaten-en-juristen',
     es: '/es/bufetes-transcripcion-ia-para-abogados-y-profesionales-legales',
