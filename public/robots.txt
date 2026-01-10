@@ -7,6 +7,39 @@ Disallow: /app/
 Disallow: /opt/
 Disallow: /general/
 
+# Block blog for non-German locales (only /blog exists)
+Disallow: /en/blog
+Disallow: /nl/blog
+Disallow: /es/blog
+Disallow: /fr/blog
+Disallow: /sv/blog
+
+# Block questions/fragen pages for locales without content
+Disallow: /es/preguntas
+Disallow: /es/fragen
+Disallow: /nl/vragen
+Disallow: /nl/fragen
+Disallow: /fr/questions
+Disallow: /fr/fragen
+Disallow: /sv/fragor
+Disallow: /sv/fragen
+
+# Block German slugs under wrong locales (404s being crawled)
+Disallow: /es/fragen/
+Disallow: /es/hilfe
+Disallow: /es/kontakt
+Disallow: /es/datensicherheit-ki-spracherkennung
+Disallow: /es/eu-ki-gesetz
+Disallow: /es/ki-transkription-wie-es-funktioniert
+Disallow: /es/content-ersteller-show-notes-untertitel-blogartikel-inhalte-transkribieren
+Disallow: /es/journalisten-und-redakteure-interviews-pressekonferenzen-recherche-aufnahmen-umwandeln
+Disallow: /es/juristen-und-anwaelte-diktate-mandantengespraeche-dsgvo-konform-aufzeichnen
+Disallow: /es/ki-im-mittelstand
+Disallow: /es/geschaeftsleute-und-fuehrungskraefte-meetings-ideen-und-notizen-effizient-festhalten
+Disallow: /es/unternehmen-ki-sicherheit
+Disallow: /nl/behoerden-ki-sicherheit
+Disallow: /nl/unternehmen-ki-sicherheit
+
 # Block URLs with query parameters (tracking, form params)
 Disallow: /*?grund=
 Disallow: /*?utm_

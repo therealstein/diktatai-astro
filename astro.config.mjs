@@ -15,13 +15,25 @@ export default defineConfig({
     tailwind(),
     vue(), // For gradual migration of complex interactive components
     sitemap({
-      filter: (page) =>
-        !page.includes('/impressum') &&
-        !page.includes('/imprint') &&
-        !page.includes('/datenschutz') &&
-        !page.includes('/privacy') &&
-        !page.includes('/agb') &&
-        !page.includes('/terms'),
+      filter: (page) => {
+        // Block legal pages
+        if (page.includes('/impressum') || page.includes('/imprint') ||
+            page.includes('/datenschutz') || page.includes('/privacy') ||
+            page.includes('/agb') || page.includes('/terms') ||
+            page.includes('/voorwaarden') || page.includes('/colofon') ||
+            page.includes('/terminos') || page.includes('/aviso-legal') ||
+            page.includes('/privacidad') || page.includes('/conditions') ||
+            page.includes('/mentions-legales') || page.includes('/confidentialite') ||
+            page.includes('/villkor') || page.includes('/integritetspolicy') ||
+            page.includes('/gegevensbescherming')) {
+          return false;
+        }
+        // Block blog for non-German locales
+        if (page.match(/\/(en|nl|es|fr|sv)\/blog/)) {
+          return false;
+        }
+        return true;
+      },
       i18n: {
         defaultLocale: 'de',
         locales: {
