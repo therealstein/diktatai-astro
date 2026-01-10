@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { getLocalePath } from '../../i18n/utils';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 const locale = 'de';
+const blogPath = getLocalePath('blog', locale);
 
 // BlogPosting Schema
 const blogPostSchema = {
@@ -79,7 +81,7 @@ const blogPostSchema = {
 
         <footer class="mt-12 pt-8 border-t border-indigo-200/30">
           <a
-            href="/blog"
+            href={blogPath}
             class="inline-flex items-center text-indigo-600 hover:text-purple-600 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

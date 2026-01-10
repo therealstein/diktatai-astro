@@ -69,3 +69,18 @@ export const appUrls = {
   register: 'https://app.diktat.ai/sign-up',
   app: 'https://app.diktat.ai',
 };
+
+// Locale-specific register URLs
+export const registerUrls: Record<Locale, string> = {
+  de: 'https://diktat.ai/auth/register',
+  en: 'https://diktat.ai/en/auth/register',
+  nl: 'https://diktat.ai/nl/auth/register',
+  es: 'https://diktat.ai/es/auth/register',
+  fr: 'https://diktat.ai/fr/auth/register',
+  sv: 'https://diktat.ai/sv/auth/register',
+};
+
+// Get register URL for a specific locale
+export function getRegisterUrl(locale: Locale): string {
+  return registerUrls[locale];
+}

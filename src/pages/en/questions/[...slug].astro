@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { getLocalePath } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const questions = await getCollection('questions');
@@ -15,6 +16,7 @@ export async function getStaticPaths() {
 const { question } = Astro.props;
 const { Content } = await question.render();
 const locale = 'en';
+const questionsPath = getLocalePath('questions', locale);
 ---
 
 <Layout
@@ -36,7 +38,7 @@ const locale = 'en';
 
         <footer class="mt-12 pt-8 border-t border-indigo-200/30">
           <a
-            href="/en/questions"
+            href={questionsPath}
             class="inline-flex items-center text-indigo-600 hover:text-purple-600 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,25 +1,19 @@
 ---
-import { routes } from '../i18n/routes';
+import { getLocalePath, getRegisterUrl, type Locale } from '../i18n/utils';
+import { commonTranslations } from '../i18n/common';
 import type { StudentsTranslation } from '../i18n/userGroups/students';
 
 interface Props {
-  locale: 'de' | 'en' | 'nl' | 'es' | 'fr' | 'sv';
+  locale: Locale;
   t: StudentsTranslation;
 }
 
 const { locale, t } = Astro.props;
-const registerUrl = 'https://app.diktat.ai/register';
-
-const getLocalizedPath = (routeKey: keyof typeof routes) => {
-  const route = routes[routeKey];
-  if (!route) return '/';
-  const path = route[locale];
-  return path || route.de || '/';
-};
-
-const howItWorksPath = getLocalizedPath('howItWorks');
-const pricingPath = getLocalizedPath('pricing');
-const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
+const common = commonTranslations[locale];
+const registerUrl = getRegisterUrl(locale);
+const howItWorksPath = getLocalePath('howItWorks', locale);
+const pricingPath = getLocalePath('pricing', locale);
+const aiSpeechRecognitionPath = getLocalePath('aiSpeechRecognition', locale);
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -231,10 +225,10 @@ const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
       <!-- Final CTA Section -->
       <div class="card bg-gradient-to-br from-pink-500/10 to-blue-500/10 shadow-xl p-8 rounded-3xl border border-pink-500/20">
         <h2 class="font-display text-3xl font-bold mb-4 text-center">
-          {locale === 'de' ? 'Bereit loszulegen?' : locale === 'en' ? 'Ready to get started?' : locale === 'nl' ? 'Klaar om te beginnen?' : locale === 'es' ? '¿Listo para empezar?' : locale === 'fr' ? 'Prêt à commencer ?' : 'Redo att börja?'}
+          {common.cta.readyToStart}
         </h2>
         <p class="text-lg text-center mb-8">
-          {locale === 'de' ? 'Starten Sie jetzt kostenlos und sparen Sie wertvolle Zeit bei der Transkription.' : locale === 'en' ? 'Start free now and save valuable time on transcription.' : locale === 'nl' ? 'Start nu gratis en bespaar waardevolle tijd bij transcriptie.' : locale === 'es' ? 'Comience gratis ahora y ahorre tiempo valioso en transcripción.' : locale === 'fr' ? 'Commencez gratuitement maintenant et économisez un temps précieux sur la transcription.' : 'Börja gratis nu och spara värdefull tid på transkription.'}
+          {common.cta.startFreeDescription}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={registerUrl}>
@@ -244,17 +238,17 @@ const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
           </a>
           <a href={pricingPath}>
             <button class="btn btn-outline btn-lg">
-              {locale === 'de' ? 'Preise ansehen' : locale === 'en' ? 'View pricing' : locale === 'nl' ? 'Prijzen bekijken' : locale === 'es' ? 'Ver precios' : locale === 'fr' ? 'Voir les tarifs' : 'Visa priser'}
+              {common.links.viewPricing}
             </button>
           </a>
         </div>
         <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
           <a href={howItWorksPath} class="text-pink-500 hover:text-pink-600 font-medium">
-            {locale === 'de' ? 'So funktioniert es' : locale === 'en' ? 'How it works' : locale === 'nl' ? 'Hoe het werkt' : locale === 'es' ? 'Cómo funciona' : locale === 'fr' ? 'Comment ça marche' : 'Hur det fungerar'} →
+            {common.links.howItWorks} →
           </a>
           <span class="text-gray-400">|</span>
           <a href={aiSpeechRecognitionPath} class="text-pink-500 hover:text-pink-600 font-medium">
-            {locale === 'de' ? 'Unsere KI-Technologie' : locale === 'en' ? 'Our AI technology' : locale === 'nl' ? 'Onze AI-technologie' : locale === 'es' ? 'Nuestra tecnología IA' : locale === 'fr' ? 'Notre technologie IA' : 'Vår AI-teknik'} →
+            {common.links.ourAiTechnology} →
           </a>
         </div>
       </div>

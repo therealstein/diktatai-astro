@@ -1,5 +1,5 @@
 ---
-import { getTranslation, appUrls, type Locale } from '../i18n/utils';
+import { getTranslation, getRegisterUrl, type Locale } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
@@ -7,6 +7,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslation(locale);
+const registerUrl = getRegisterUrl(locale);
 ---
 
 <!-- Hero Section with background image -->
@@ -56,7 +57,7 @@ const t = getTranslation(locale);
 
       <!-- CTA Buttons -->
       <div class="flex justify-center mb-8">
-        <a href={appUrls.register}>
+        <a href={registerUrl}>
           <button class="group relative px-10 py-5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-xl rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 tracking-wide overflow-hidden">
             <!-- Button glow effect -->
             <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>

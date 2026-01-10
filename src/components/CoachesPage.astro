@@ -1,24 +1,19 @@
 ---
-import { routes } from '../i18n/routes';
+import { getLocalePath, getRegisterUrl, type Locale } from '../i18n/utils';
+import { commonTranslations } from '../i18n/common';
 import type { CoachesTranslation } from '../i18n/userGroups/coaches';
 
 interface Props {
-  locale: 'de' | 'en' | 'nl' | 'es' | 'fr' | 'sv';
+  locale: Locale;
   t: CoachesTranslation;
 }
 
 const { locale, t } = Astro.props;
-const registerUrl = 'https://app.diktat.ai/register';
-
-const getLocalizedPath = (routeKey: keyof typeof routes) => {
-  const route = routes[routeKey];
-  if (!route) return '/';
-  const path = route[locale];
-  return path || route.de || '/';
-};
-
-const howItWorksPath = getLocalizedPath('howItWorks');
-const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
+const common = commonTranslations[locale];
+const registerUrl = getRegisterUrl(locale);
+const howItWorksPath = getLocalePath('howItWorks', locale);
+const pricingPath = getLocalePath('pricing', locale);
+const aiSpeechRecognitionPath = getLocalePath('aiSpeechRecognition', locale);
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -245,7 +240,7 @@ const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
                 {t.simplicity.ai.text}
               </p>
               <a href={aiSpeechRecognitionPath} class="text-pink-500 hover:text-pink-600 text-sm mt-2">
-                {locale === 'de' ? 'Mehr zur KI-Technologie' : locale === 'en' ? 'Learn about our AI' : locale === 'nl' ? 'Meer over AI' : locale === 'es' ? 'Más sobre IA' : locale === 'fr' ? 'En savoir plus sur l\'IA' : 'Mer om AI'} →
+                {common.links.learnAboutAi} →
               </a>
             </div>
           </div>
@@ -341,7 +336,7 @@ const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
               {t.cta.button1}
             </button>
           </a>
-          <a href={getLocalizedPath('pricing')}>
+          <a href={pricingPath}>
             <button class="btn btn-outline btn-lg">
               {t.cta.button2}
             </button>
@@ -349,7 +344,7 @@ const aiSpeechRecognitionPath = getLocalizedPath('aiSpeechRecognition');
         </div>
         <div class="mt-6 text-center">
           <a href={howItWorksPath} class="text-pink-500 hover:text-pink-600 font-medium">
-            {locale === 'de' ? 'So funktioniert es' : locale === 'en' ? 'How it works' : locale === 'nl' ? 'Hoe het werkt' : locale === 'es' ? 'Cómo funciona' : locale === 'fr' ? 'Comment ça marche' : 'Hur det fungerar'} →
+            {common.links.howItWorks} →
           </a>
         </div>
       </div>

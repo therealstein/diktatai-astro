@@ -1,21 +1,21 @@
 ---
-import { routes } from '../i18n/routes';
+import { getLocalePath, getRegisterUrl, type Locale } from '../i18n/utils';
+import { commonTranslations } from '../i18n/common';
 import type { SalesTranslation } from '../i18n/userGroups/sales';
 
 interface Props {
-  locale: 'de' | 'en' | 'nl' | 'es' | 'fr' | 'sv';
+  locale: Locale;
   t: SalesTranslation;
 }
 
 const { locale, t } = Astro.props;
-const registerUrl = 'https://app.diktat.ai/register';
-
-// Get localized routes
-const howItWorksRoute = routes.howItWorks[locale];
-const contactRoute = routes.contact[locale];
-const pricingRoute = routes.pricing[locale];
-const datasafetyRoute = routes.datasafety[locale];
-const aiSpeechRecognitionRoute = routes.aiSpeechRecognition[locale];
+const common = commonTranslations[locale];
+const registerUrl = getRegisterUrl(locale);
+const howItWorksRoute = getLocalePath('howItWorks', locale);
+const contactRoute = getLocalePath('contact', locale);
+const pricingRoute = getLocalePath('pricing', locale);
+const datasafetyRoute = getLocalePath('datasafety', locale);
+const aiSpeechRecognitionRoute = getLocalePath('aiSpeechRecognition', locale);
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -242,7 +242,7 @@ const aiSpeechRecognitionRoute = routes.aiSpeechRecognition[locale];
           </a>
           <span class="text-gray-400">|</span>
           <a href={aiSpeechRecognitionRoute} class="text-pink-500 hover:underline">
-            {locale === 'de' ? 'KI-Technologie' : locale === 'en' ? 'AI Technology' : locale === 'nl' ? 'AI-technologie' : locale === 'es' ? 'Tecnología IA' : locale === 'fr' ? 'Technologie IA' : 'AI-teknik'}
+            {common.links.aiTechnology}
           </a>
         </div>
       </div>

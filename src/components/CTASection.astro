@@ -1,5 +1,5 @@
 ---
-import { getTranslation, getLocalePath, appUrls, type Locale } from '../i18n/utils';
+import { getTranslation, getLocalePath, getRegisterUrl, type Locale } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
@@ -7,6 +7,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getTranslation(locale);
+const registerUrl = getRegisterUrl(locale);
 const pricingPath = getLocalePath('pricing', locale);
 ---
 
@@ -20,7 +21,7 @@ const pricingPath = getLocalePath('pricing', locale);
       </p>
 
       <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-        <a href={appUrls.register}>
+        <a href={registerUrl}>
           <button class="font-display bg-pink-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide">
             {t('cta.startFree')}
           </button>

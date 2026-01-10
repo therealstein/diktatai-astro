@@ -1,20 +1,20 @@
 ---
-import { routes } from '../i18n/routes';
+import { getLocalePath, getRegisterUrl, type Locale } from '../i18n/utils';
+import { commonTranslations } from '../i18n/common';
 import type { MediaTranslation } from '../i18n/userGroups/media';
 
 interface Props {
-  locale: 'de' | 'en' | 'nl' | 'es' | 'fr' | 'sv';
+  locale: Locale;
   t: MediaTranslation;
 }
 
 const { locale, t } = Astro.props;
-const registerUrl = 'https://app.diktat.ai/register';
-
-// Get localized routes
-const howItWorksRoute = routes.howItWorks[locale];
-const contactRoute = routes.contact[locale];
-const pricingRoute = routes.pricing[locale];
-const aiSpeechRecognitionRoute = routes.aiSpeechRecognition[locale];
+const common = commonTranslations[locale];
+const registerUrl = getRegisterUrl(locale);
+const howItWorksRoute = getLocalePath('howItWorks', locale);
+const contactRoute = getLocalePath('contact', locale);
+const pricingRoute = getLocalePath('pricing', locale);
+const aiSpeechRecognitionRoute = getLocalePath('aiSpeechRecognition', locale);
 ---
 
 <div class="bg-base-100 text-base-content">
@@ -425,7 +425,7 @@ const aiSpeechRecognitionRoute = routes.aiSpeechRecognition[locale];
         </div>
         <div class="mt-6 text-center">
           <a href={aiSpeechRecognitionRoute} class="text-pink-500 hover:text-pink-600 font-medium text-sm">
-            {locale === 'de' ? 'Mehr über unsere KI-Technologie' : locale === 'en' ? 'Learn about our AI technology' : locale === 'nl' ? 'Meer over onze AI-technologie' : locale === 'es' ? 'Más sobre nuestra tecnología IA' : locale === 'fr' ? 'En savoir plus sur notre technologie IA' : 'Mer om vår AI-teknik'} →
+            {common.links.learnMoreTechnology} →
           </a>
         </div>
       </div>

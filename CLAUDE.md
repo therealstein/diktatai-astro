@@ -74,7 +74,7 @@ export const myNewPageTranslations = {
 
 ```astro
 ---
-import { getLocalePath, appUrls, type Locale } from '../i18n/utils';
+import { getLocalePath, getRegisterUrl, type Locale } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
@@ -82,6 +82,7 @@ interface Props {
 }
 
 const { locale, t } = Astro.props;
+const registerUrl = getRegisterUrl(locale);
 const pricingPath = getLocalePath('pricing', locale);
 ---
 
@@ -170,14 +171,20 @@ const t = myNewPageTranslations[locale];
 ## Common Utilities
 
 ```typescript
-import { getLocalePath, appUrls, type Locale } from '../i18n/utils';
+import { getLocalePath, getRegisterUrl, appUrls, type Locale } from '../i18n/utils';
 
 // Get localized path
 const pricingPath = getLocalePath('pricing', locale); // Returns '/preise' for 'de'
 
-// App URLs
-appUrls.register  // External app registration URL
-appUrls.login     // External app login URL
+// Get locale-specific register URL
+const registerUrl = getRegisterUrl(locale);
+// de: 'https://diktat.ai/auth/register'
+// en: 'https://diktat.ai/en/auth/register'
+// nl, es, fr, sv: 'https://diktat.ai/{locale}/auth/register'
+
+// App URLs (non-localized)
+appUrls.login  // https://app.diktat.ai/sign-in
+appUrls.app    // https://app.diktat.ai
 ```
 
 ## Build & Development
