@@ -5,7 +5,7 @@ Allow: /
 Disallow: /api/
 Disallow: /app/
 Disallow: /opt/
-Disallow: /general/
+# Note: /general/* paths have 301 redirects in _redirects file
 
 # Block blog for non-German locales (only /blog exists)
 Disallow: /en/blog
@@ -40,12 +40,7 @@ Disallow: /es/unternehmen-ki-sicherheit
 Disallow: /nl/behoerden-ki-sicherheit
 Disallow: /nl/unternehmen-ki-sicherheit
 
-# Block URLs with query parameters (tracking, form params)
-Disallow: /*?grund=
-Disallow: /*?utm_
-Disallow: /*?ref=
-Disallow: /*?fbclid=
-Disallow: /*?gclid=
+# Note: Query parameters (?ref=, ?utm_, etc.) are handled via canonical tags in Layout.astro
 
 # Sitemap
 Sitemap: https://diktat.ai/sitemap-index.xml

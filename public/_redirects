@@ -51,3 +51,128 @@
 /nl/unternehmen-ki-sicherheit /nl/bedrijven-ai-beveiliging 301
 /es/juristen-und-anwaelte-diktate-mandantengespraeche-dsgvo-konform-aufzeichnen /es/abogados-grabar-reuniones-clientes-cumplimiento-rgpd 301
 /nl/journalisten-und-redakteure-interviews-pressekonferenzen-recherche-aufnahmen-umwandeln /nl/journalisten-en-redacteuren-interviews-persconferenties-onderzoeksopnames-transcriberen 301
+/es/behoerden-ki-sicherheit /es/sector-publico-seguridad-ia 301
+
+# English /en/general/* paths redirects
+/en/general/about /en/about-us 301
+/en/general/coaches /en/consultants-and-coaches-efficiently-document-customer-meetings-sessions 301
+/en/general/help /en/help 301
+/en/general/contentcreators /en/content-creators-efficiently-transcribe-show-notes-subtitles-blog-articles-content 301
+
+# Blog redirects (blog only exists in German)
+/nl/blog/* /blog/:splat 301
+/es/blog/* /blog/:splat 301
+/fr/blog/* /blog/:splat 301
+/sv/blog/* /blog/:splat 301
+
+# English questions with German slugs -> redirect to English equivalent
+/en/questions/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen /en/questions/samsung-text-to-speech 301
+/en/questions/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung /en/questions/pc-voice-dictation-speech-to-text 301
+/en/questions/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze /en/questions/microsoft-dictation-not-working 301
+/en/questions/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe /en/questions/keyboard-shortcut-for-dictation 301
+/en/questions/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen /en/questions/chatgpt-audio-to-text 301
+/en/questions/was-ist-ein-sprachdiktat-mehr-als-nur-gesprochene-worte /en/questions/what-is-voice-dictation 301
+/en/questions/mac-sprachdiktat-so-diktierst-du-texte-statt-sie-zu-tippen-eine-anleitung /en/questions/mac-voice-dictation 301
+/en/questions/google-docs-sprache-zu-text-so-diktieren-sie-texte-muhelos-und-sparen-zeit /en/questions/google-docs-voice-typing 301
+/en/questions/excel-tabellen-per-spracheingabe-fullen-so-hilft-diktat-ai /en/questions/excel-voice-input 301
+/en/questions/whatsapp-sprachdiktat-streikt-schnelle-losungen-und-die-professionelle-alternative /en/questions/whatsapp-voice-dictation-not-working 301
+
+# German /fragen/ with English slugs -> redirect to German equivalent
+/fragen/whatsapp-voice-dictation-not-working /fragen/whatsapp-sprachdiktat-streikt-schnelle-losungen-und-die-professionelle-alternative 301
+/fragen/microsoft-dictation-not-working /fragen/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze 301
+/fragen/keyboard-shortcut-for-dictation /fragen/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe 301
+/fragen/what-is-voice-dictation /fragen/was-ist-ein-sprachdiktat-mehr-als-nur-gesprochene-worte 301
+/fragen/pc-voice-dictation-speech-to-text /fragen/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung 301
+/fragen/samsung-text-to-speech /fragen/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen 301
+/fragen/chatgpt-audio-to-text /fragen/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen 301
+/fragen/mac-voice-dictation /fragen/mac-sprachdiktat-so-diktierst-du-texte-statt-sie-zu-tippen-eine-anleitung 301
+/fragen/google-docs-voice-typing /fragen/google-docs-sprache-zu-text-so-diktieren-sie-texte-muhelos-und-sparen-zeit 301
+/fragen/excel-voice-input /fragen/excel-tabellen-per-spracheingabe-fullen-so-hilft-diktat-ai 301
+
+# Dutch /nl/vragen/* with German slugs -> redirect to German /fragen/
+/nl/vragen/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen /fragen/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen 301
+/nl/vragen/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung /fragen/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung 301
+/nl/vragen/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze /fragen/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze 301
+/nl/vragen/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe /fragen/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe 301
+/nl/vragen/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen /fragen/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen 301
+/nl/vragen/was-ist-ein-sprachdiktat-mehr-als-nur-gesprochene-worte /fragen/was-ist-ein-sprachdiktat-mehr-als-nur-gesprochene-worte 301
+/nl/vragen/mac-sprachdiktat-so-diktierst-du-texte-statt-sie-zu-tippen-eine-anleitung /fragen/mac-sprachdiktat-so-diktierst-du-texte-statt-sie-zu-tippen-eine-anleitung 301
+/nl/vragen/google-docs-sprache-zu-text-so-diktieren-sie-texte-muhelos-und-sparen-zeit /fragen/google-docs-sprache-zu-text-so-diktieren-sie-texte-muhelos-und-sparen-zeit 301
+/nl/vragen/excel-tabellen-per-spracheingabe-fullen-so-hilft-diktat-ai /fragen/excel-tabellen-per-spracheingabe-fullen-so-hilft-diktat-ai 301
+/nl/vragen/whatsapp-sprachdiktat-streikt-schnelle-losungen-und-die-professionelle-alternative /fragen/whatsapp-sprachdiktat-streikt-schnelle-losungen-und-die-professionelle-alternative 301
+/nl/fragen/* /fragen/:splat 301
+
+# Dutch /nl/vragen/* with English slugs -> redirect to English /en/questions/
+/nl/vragen/whatsapp-voice-dictation-not-working /en/questions/whatsapp-voice-dictation-not-working 301
+/nl/vragen/microsoft-dictation-not-working /en/questions/microsoft-dictation-not-working 301
+/nl/vragen/samsung-text-to-speech /en/questions/samsung-text-to-speech 301
+/nl/vragen/google-docs-voice-typing /en/questions/google-docs-voice-typing 301
+/nl/vragen/mac-voice-dictation /en/questions/mac-voice-dictation 301
+/nl/vragen/what-is-voice-dictation /en/questions/what-is-voice-dictation 301
+/nl/vragen/excel-voice-input /en/questions/excel-voice-input 301
+/nl/vragen/keyboard-shortcut-for-dictation /en/questions/keyboard-shortcut-for-dictation 301
+/nl/vragen/pc-voice-dictation-speech-to-text /en/questions/pc-voice-dictation-speech-to-text 301
+/nl/vragen/chatgpt-audio-to-text /en/questions/chatgpt-audio-to-text 301
+
+# Spanish /es/preguntas/* with German slugs -> redirect to German /fragen/
+/es/preguntas/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen /fragen/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen 301
+/es/preguntas/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung /fragen/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung 301
+/es/preguntas/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze /fragen/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze 301
+/es/preguntas/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe /fragen/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe 301
+/es/preguntas/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen /fragen/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen 301
+
+# Spanish /es/preguntas/* with English slugs -> redirect to English /en/questions/
+/es/preguntas/whatsapp-voice-dictation-not-working /en/questions/whatsapp-voice-dictation-not-working 301
+/es/preguntas/excel-voice-input /en/questions/excel-voice-input 301
+/es/preguntas/keyboard-shortcut-for-dictation /en/questions/keyboard-shortcut-for-dictation 301
+/es/preguntas/mac-voice-dictation /en/questions/mac-voice-dictation 301
+/es/preguntas/chatgpt-audio-to-text /en/questions/chatgpt-audio-to-text 301
+/es/preguntas/pc-voice-dictation-speech-to-text /en/questions/pc-voice-dictation-speech-to-text 301
+/es/preguntas/what-is-voice-dictation /en/questions/what-is-voice-dictation 301
+/es/preguntas/samsung-text-to-speech /en/questions/samsung-text-to-speech 301
+/es/preguntas/google-docs-voice-typing /en/questions/google-docs-voice-typing 301
+/es/preguntas/microsoft-dictation-not-working /en/questions/microsoft-dictation-not-working 301
+
+# French /fr/questions/* with German slugs -> redirect to German /fragen/
+/fr/questions/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen /fragen/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen 301
+/fr/questions/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung /fragen/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung 301
+/fr/questions/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze /fragen/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze 301
+/fr/questions/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe /fragen/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe 301
+/fr/questions/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen /fragen/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen 301
+
+# French /fr/questions/* with English slugs -> redirect to English /en/questions/
+/fr/questions/excel-voice-input /en/questions/excel-voice-input 301
+/fr/questions/google-docs-voice-typing /en/questions/google-docs-voice-typing 301
+/fr/questions/keyboard-shortcut-for-dictation /en/questions/keyboard-shortcut-for-dictation 301
+/fr/questions/samsung-text-to-speech /en/questions/samsung-text-to-speech 301
+/fr/questions/mac-voice-dictation /en/questions/mac-voice-dictation 301
+/fr/questions/chatgpt-audio-to-text /en/questions/chatgpt-audio-to-text 301
+/fr/questions/pc-voice-dictation-speech-to-text /en/questions/pc-voice-dictation-speech-to-text 301
+/fr/questions/what-is-voice-dictation /en/questions/what-is-voice-dictation 301
+/fr/questions/microsoft-dictation-not-working /en/questions/microsoft-dictation-not-working 301
+/fr/questions/whatsapp-voice-dictation-not-working /en/questions/whatsapp-voice-dictation-not-working 301
+
+# Swedish /sv/fragor/* with German slugs -> redirect to German /fragen/
+/sv/fragor/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen /fragen/samsung-text-to-speech-so-lasst-du-dir-texte-einfach-vorlesen 301
+/sv/fragor/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung /fragen/sprachdiktat-am-pc-so-einfach-verwandeln-sie-sprache-in-text-eine-anleitung 301
+/sv/fragor/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze /fragen/microsoft-sprachdiktat-funktioniert-nicht-hier-sind-ihre-losungsansatze 301
+/sv/fragor/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe /fragen/welche-tastenkombination-fur-diktieren-ihr-wegweiser-zur-effizienten-spracheingabe 301
+/sv/fragor/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen /fragen/kann-chatgpt-audio-in-text-umwandeln-die-uberraschende-antwort-und-clevere-alternativen 301
+
+# Swedish /sv/fragor/* with English slugs -> redirect to English /en/questions/
+/sv/fragor/google-docs-voice-typing /en/questions/google-docs-voice-typing 301
+/sv/fragor/excel-voice-input /en/questions/excel-voice-input 301
+/sv/fragor/chatgpt-audio-to-text /en/questions/chatgpt-audio-to-text 301
+/sv/fragor/samsung-text-to-speech /en/questions/samsung-text-to-speech 301
+/sv/fragor/keyboard-shortcut-for-dictation /en/questions/keyboard-shortcut-for-dictation 301
+/sv/fragor/microsoft-dictation-not-working /en/questions/microsoft-dictation-not-working 301
+/sv/fragor/what-is-voice-dictation /en/questions/what-is-voice-dictation 301
+/sv/fragor/pc-voice-dictation-speech-to-text /en/questions/pc-voice-dictation-speech-to-text 301
+/sv/fragor/mac-voice-dictation /en/questions/mac-voice-dictation 301
+/sv/fragor/whatsapp-voice-dictation-not-working /en/questions/whatsapp-voice-dictation-not-working 301
+
+# Build artifacts and legacy paths -> redirect to home
+/opt/render/project/* / 301
+/_nuxt-landing/ / 301
+/_nuxt/ / 301
+/es/form.privacyUrl /es/ 301
