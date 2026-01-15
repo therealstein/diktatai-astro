@@ -1,6 +1,7 @@
 export const aiInSmeTranslations = {
   de: {
     seo: {
+      title: "KI im Mittelstand - Praktische Lösungen | Diktat AI",
       description: "KI im Mittelstand pragmatisch nutzen: Sofort Mehrwert, DSGVO-konform - ohne grosse Budgets."
     },
     hero: {
@@ -82,6 +83,7 @@ export const aiInSmeTranslations = {
   },
   en: {
     seo: {
+      title: "AI for Small & Medium Businesses | Diktat AI",
       description: "AI for SMEs made practical: Immediate value, GDPR-compliant - no big budgets needed."
     },
     hero: {
@@ -163,6 +165,7 @@ export const aiInSmeTranslations = {
   },
   nl: {
     seo: {
+      title: "AI voor het MKB - Praktische Oplossingen | DiktatAI",
       description: "AI in het MKB pragmatisch gebruiken: Direct meerwaarde, AVG-conform - zonder grote budgetten."
     },
     hero: {
@@ -244,6 +247,7 @@ export const aiInSmeTranslations = {
   },
   es: {
     seo: {
+      title: "IA para PYMES - Soluciones Prácticas | Diktat AI",
       description: "IA en las PYMES de forma practica: Valor inmediato, conforme al RGPD - sin grandes presupuestos."
     },
     hero: {
@@ -325,6 +329,7 @@ export const aiInSmeTranslations = {
   },
   fr: {
     seo: {
+      title: "L'IA pour les PME - Solutions Pratiques | Diktat AI",
       description: "L'IA pour les PME de maniere pragmatique : Valeur immediate, conforme au RGPD - sans gros budgets."
     },
     hero: {
@@ -406,6 +411,7 @@ export const aiInSmeTranslations = {
   },
   sv: {
     seo: {
+      title: "AI för Små & Medelstora Företag | Diktat AI",
       description: "AI for SMF pa ett pragmatiskt satt: Omedelbart varde, GDPR-kompatibel - utan stora budgetar."
     },
     hero: {

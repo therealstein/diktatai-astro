@@ -1,7 +1,7 @@
 export const coachesTranslations = {
   de: {
     seo: {
-      title: "Diktat AI für Coaches & Berater = Effiziente Gesprächsdokumentation",
+      title: "Transkription für Coaches & Berater | Diktat AI",
       description: "Diktat AI für Coaches: Verwandeln Sie Ihre Coaching-Sessions, Beratungsgespräche und Workshops mühelos in Text. Sparen Sie Zeit bei der Dokumentation."
     },
     hero: {
@@ -109,7 +109,7 @@ export const coachesTranslations = {
   },
   en: {
     seo: {
-      title: "Diktat AI for Coaches & Consultants = Efficient Conversation Documentation",
+      title: "Transcription for Coaches & Consultants | Diktat AI",
       description: "Diktat AI for Coaches: Transform your coaching sessions, consulting conversations, and workshops into text effortlessly. Save time on documentation."
     },
     hero: {
@@ -217,7 +217,7 @@ export const coachesTranslations = {
   },
   nl: {
     seo: {
-      title: "Diktat AI voor Coaches & Adviseurs = Efficiënte Gespreksdocumentatie",
+      title: "Transcriptie voor Coaches & Adviseurs | DiktatAI",
       description: "Diktat AI voor Coaches: Zet uw coachingsessies, adviesgesprekken en workshops moeiteloos om in tekst. Bespaar tijd bij de documentatie."
     },
     hero: {
@@ -325,7 +325,7 @@ export const coachesTranslations = {
   },
   es: {
     seo: {
-      title: "Diktat AI para Coaches y Consultores = Documentación eficiente de conversaciones",
+      title: "Transcripción para Coaches y Consultores | Diktat AI",
       description: "Diktat AI para Coaches: Transforme sus sesiones de coaching, conversaciones de consultoría y talleres en texto sin esfuerzo. Ahorre tiempo en la documentación."
     },
     hero: {
@@ -433,7 +433,7 @@ export const coachesTranslations = {
   },
   fr: {
     seo: {
-      title: "Diktat AI pour Coaches et Consultants = Documentation efficace des conversations",
+      title: "Transcription pour Coaches et Consultants | Diktat AI",
       description: "Diktat AI pour Coaches : Transformez vos séances de coaching, conversations de conseil et ateliers en texte sans effort. Gagnez du temps sur la documentation."
     },
     hero: {
@@ -541,7 +541,7 @@ export const coachesTranslations = {
   },
   sv: {
     seo: {
-      title: "Diktat AI för Coaches och Konsulter = Effektiv samtalsdokumentation",
+      title: "Transkription för Coaches och Konsulter | Diktat AI",
       description: "Diktat AI för Coaches: Förvandla dina coachingpass, konsultsamtal och workshops till text utan ansträngning. Spara tid på dokumentation."
     },
     hero: {

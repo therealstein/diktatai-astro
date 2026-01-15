@@ -269,7 +269,7 @@ export const contactTranslations = {
   },
   fr: {
     seo: {
-      title: "Contact - Diktat AI",
+      title: "Contactez-nous - Diktat AI",
       description: "Contactez-nous pour des questions, du support ou des commentaires sur Diktat AI. Nous sommes là pour vous aider et répondons dans les 24-48 heures."
     },
     hero: {

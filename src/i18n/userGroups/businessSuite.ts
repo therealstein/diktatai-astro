@@ -1,6 +1,7 @@
 export const businessSuiteTranslations = {
   de: {
     seo: {
+      title: "Business Suite - Enterprise Transkription | Diktat AI",
       description: "Business Suite von Diktat AI: On-Premise, SSO, API & Training - maximale Sicherheit und Kontrolle."
     },
     hero: {
@@ -69,6 +70,7 @@ export const businessSuiteTranslations = {
   },
   en: {
     seo: {
+      title: "Business Suite - Enterprise Transcription | Diktat AI",
       description: "Diktat AI Business Suite: On-prem, SSO, API & training - maximum security and control."
     },
     hero: {
@@ -137,6 +139,7 @@ export const businessSuiteTranslations = {
   },
   nl: {
     seo: {
+      title: "Business Suite - Enterprise Transcriptie | DiktatAI",
       description: "Business Suite van DiktatAI: On-Premise, SSO, API & Training - maximale veiligheid en controle."
     },
     hero: {
@@ -205,6 +208,7 @@ export const businessSuiteTranslations = {
   },
   es: {
     seo: {
+      title: "Business Suite - Transcripción Empresarial | Diktat AI",
       description: "Business Suite de Diktat AI: On-Premise, SSO, API y formacion - maxima seguridad y control."
     },
     hero: {
@@ -273,6 +277,7 @@ export const businessSuiteTranslations = {
   },
   fr: {
     seo: {
+      title: "Business Suite - Transcription Entreprise | Diktat AI",
       description: "Business Suite de Diktat AI : On-Premise, SSO, API et formation - securite et controle maximaux."
     },
     hero: {
@@ -341,6 +346,7 @@ export const businessSuiteTranslations = {
   },
   sv: {
     seo: {
+      title: "Business Suite - Företagstranskription | Diktat AI",
       description: "Business Suite fran Diktat AI: On-Premise, SSO, API och utbildning - maximal sakerhet och kontroll."
     },
     hero: {

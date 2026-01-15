@@ -1,7 +1,7 @@
 export const howItWorksTranslations = {
   de: {
     seo: {
-      title: "So funktioniert es - Diktat AI",
+      title: "So funktioniert KI-Transkription in 3 Schritten | Diktat AI",
       description: "Erfahren Sie, wie einfach die Spracherkennung mit Diktat AI funktioniert. In nur 3 Schritten verwandeln Sie Ihre Audioaufnahmen in Text."
     },
     hero: {
@@ -41,7 +41,7 @@ export const howItWorksTranslations = {
   },
   en: {
     seo: {
-      title: "How it Works - Dictate AI",
+      title: "How AI Transcription Works in 3 Easy Steps | Diktat AI",
       description: "Learn how easy speech recognition works with Dictate AI. Transform your audio recordings into text in just 3 steps."
     },
     hero: {
@@ -81,7 +81,7 @@ export const howItWorksTranslations = {
   },
   nl: {
     seo: {
-      title: "Zo werkt het - Diktat AI",
+      title: "Zo werkt AI-transcriptie in 3 stappen | DiktatAI",
       description: "Ontdek hoe eenvoudig spraakherkenning werkt met Diktat AI. Transformeer uw audio-opnames in tekst in slechts 3 stappen."
     },
     hero: {
@@ -121,7 +121,7 @@ export const howItWorksTranslations = {
   },
   es: {
     seo: {
-      title: "Cómo funciona - Diktat AI",
+      title: "Cómo funciona la transcripción IA en 3 pasos | Diktat AI",
       description: "Descubra lo fácil que es el reconocimiento de voz con Diktat AI. Transforme sus grabaciones en texto en solo 3 pasos."
     },
     hero: {
@@ -161,7 +161,7 @@ export const howItWorksTranslations = {
   },
   fr: {
     seo: {
-      title: "Comment ça marche - Diktat AI",
+      title: "Comment fonctionne la transcription IA en 3 étapes | Diktat AI",
       description: "Découvrez à quel point la reconnaissance vocale est facile avec Diktat AI. Transformez vos enregistrements en texte en 3 étapes."
     },
     hero: {
@@ -201,7 +201,7 @@ export const howItWorksTranslations = {
   },
   sv: {
     seo: {
-      title: "Hur det fungerar - Diktat AI",
+      title: "Hur AI-transkription fungerar i 3 steg | Diktat AI",
       description: "Upptäck hur enkel röstigenkänning är med Diktat AI. Omvandla dina ljudinspelningar till text i bara 3 steg."
     },
     hero: {

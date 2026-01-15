@@ -1,7 +1,7 @@
 export const studentsTranslations = {
   de: {
     seo: {
-      title: "Diktat AI für Studierende & Akademiker - Vorlesungen & Interviews transkribieren",
+      title: "Transkription für Studierende & Akademiker | Diktat AI",
       description: "Transkribiere Vorlesungen, Seminare und Forschungsinterviews mühelos mit Diktat AI. Spare Zeit für Prüfungen, Abschlussarbeiten und Publikationen."
     },
     hero: {
