@@ -4,25 +4,53 @@ export const howItWorksTranslations = {
       title: "So funktioniert KI-Transkription in 3 Schritten | Diktat AI",
       description: "Erfahren Sie, wie einfach die Spracherkennung mit Diktat AI funktioniert. In nur 3 Schritten verwandeln Sie Ihre Audioaufnahmen in Text."
     },
+    badge: "Enterprise Ready",
     hero: {
-      title: "In 3 einfachen Schritten zu Ihrem fertigen Transkript",
-      description: "Mit Diktat AI verwandeln Sie Ihre Audioaufnahmen schnell und mühelos in Text über unsere sichere Plattform. So sparen Sie wertvolle Zeit."
+      titleStart: "Von Audio zu Text",
+      titleHighlight: "in Sekunden",
+      description: "Transkription vereinfacht für Unternehmen. Sicher, präzise und direkt in Ihren Workflow integriert."
     },
-    process: { title: "So funktioniert Diktat AI" },
+    howItWorks: {
+      title: "So funktioniert's",
+      subtitle: "Drei einfache Schritte zur perfekten Dokumentation."
+    },
     steps: {
       step1: {
-        title: "Schritt 1: Aufnahme hochladen",
-        description: "Laden Sie Ihre Audiodatei (z.B. MP3, WAV, M4A von Meetings, Interviews, Diktaten) mit nur einem Klick direkt über unsere sichere Web-Plattform hoch."
+        label: "Hochladen",
+        title: "Hochladen oder Senden",
+        description: "Per Drag & Drop jedes Dateiformat (MP3, WAV) hochladen oder automatisch über unsere sichere API synchronisieren.",
+        formats: ["MP3", "WAV", "M4A"],
+        integrations: ["Dropbox", "Drive"]
       },
       step2: {
-        title: "Schritt 2: KI erledigt die Arbeit",
-        description: "Lehnen Sie sich zurück! Unsere fortschrittliche künstliche Intelligenz analysiert Ihre Aufnahme sicher und DSGVO-konform. Die gesprochenen Worte werden präzise erkannt und in geschriebenen Text umgewandelt."
+        label: "Verarbeiten",
+        title: "KI-Verarbeitung",
+        description: "Unsere proprietäre Engine transkribiert mit 99% Genauigkeit in Sekunden und erkennt Sprecher automatisch."
       },
       step3: {
-        title: "Schritt 3: Transkript erhalten & nutzen",
-        description: "Sobald die Transkription fertig ist, finden Sie Ihren Text direkt in Ihrem Account. Laden Sie ihn als Datei herunter (z.B. .txt, .docx) oder kopieren Sie ihn direkt."
+        label: "Fertigstellen",
+        title: "Überprüfen & Exportieren",
+        description: "Im Smart-Editor verfeinern und als PDF, DOCX oder SRT direkt an Ihr Team exportieren."
       }
     },
+    technicalSection: {
+      title: "Technische Details",
+      euHosted: {
+        title: "EU-Hosting",
+        description: "Ihre Daten verlassen niemals die Europäische Union. Wir nutzen dedizierte Server in Frankfurt & Dublin."
+      },
+      gdprCompliant: {
+        title: "DSGVO-konform",
+        description: "Enterprise-Verschlüsselung im Ruhezustand (AES-256) und bei der Übertragung (TLS 1.3)."
+      }
+    },
+    stickyCta: {
+      subtitle: "Bereit für professionelle Transkription?",
+      button: "Business-Account erstellen",
+      note: "Keine Kreditkarte für die Testversion erforderlich"
+    },
+    // Legacy fields for backward compatibility
+    process: { title: "So funktioniert Diktat AI" },
     summary: {
       title: "Das war's schon!",
       description: "Kein mühsames Abtippen, keine komplizierten Umwege. Nur drei klare Schritte trennen Sie von Ihrem fertigen Transkript auf unserer Plattform."
@@ -44,25 +72,52 @@ export const howItWorksTranslations = {
       title: "How AI Transcription Works in 3 Easy Steps | Diktat AI",
       description: "Learn how easy speech recognition works with Dictate AI. Transform your audio recordings into text in just 3 steps."
     },
+    badge: "Enterprise Ready",
     hero: {
-      title: "Get Your Finished Transcript in 3 Easy Steps",
-      description: "With Dictate AI, transform your audio recordings quickly and effortlessly into text through our secure platform. Save valuable time."
+      titleStart: "From Audio to Text",
+      titleHighlight: "in Seconds",
+      description: "Transcription simplified for Enterprise. Secure, accurate, and integrated directly into your workflow."
     },
-    process: { title: "How Dictate AI Works" },
+    howItWorks: {
+      title: "How it Works",
+      subtitle: "Three simple steps to perfect documentation."
+    },
     steps: {
       step1: {
-        title: "Step 1: Upload Recording",
-        description: "Upload your audio file (e.g., MP3, WAV, M4A from meetings, interviews, dictations) with just one click directly through our secure web platform."
+        label: "Upload",
+        title: "Upload or Send",
+        description: "Drag and drop any file format (MP3, WAV), or auto-sync via our secure API.",
+        formats: ["MP3", "WAV", "M4A"],
+        integrations: ["Dropbox", "Drive"]
       },
       step2: {
-        title: "Step 2: AI Does the Work",
-        description: "Sit back! Our advanced artificial intelligence analyzes your recording securely and GDPR-compliant. The spoken words are precisely recognized and converted into written text."
+        label: "Process",
+        title: "AI Processing",
+        description: "Our proprietary engine transcribes with 99% accuracy in seconds, identifying speakers automatically."
       },
       step3: {
-        title: "Step 3: Receive & Use Transcript",
-        description: "Once the transcription is complete, you'll find your text directly in your account. Download it as a file (e.g., .txt, .docx) or copy it directly."
+        label: "Finish",
+        title: "Review & Export",
+        description: "Polish in our smart editor and export to PDF, DOCX, or SRT directly to your team."
       }
     },
+    technicalSection: {
+      title: "Technical Deep Dive",
+      euHosted: {
+        title: "EU Hosted Data",
+        description: "Your data never leaves the European Union. We use dedicated servers in Frankfurt & Dublin."
+      },
+      gdprCompliant: {
+        title: "GDPR Compliant",
+        description: "Enterprise-grade encryption at rest (AES-256) and in transit (TLS 1.3)."
+      }
+    },
+    stickyCta: {
+      subtitle: "Ready for professional-grade transcription?",
+      button: "Create Business Account",
+      note: "No credit card required for trial"
+    },
+    process: { title: "How Dictate AI Works" },
     summary: {
       title: "That's it!",
       description: "No tedious typing, no complicated detours. Just three clear steps separate you from your finished transcript on our platform."
@@ -84,25 +139,52 @@ export const howItWorksTranslations = {
       title: "Zo werkt AI-transcriptie in 3 stappen | DiktatAI",
       description: "Ontdek hoe eenvoudig spraakherkenning werkt met Diktat AI. Transformeer uw audio-opnames in tekst in slechts 3 stappen."
     },
+    badge: "Enterprise Ready",
     hero: {
-      title: "In 3 eenvoudige stappen naar uw kant-en-klare transcriptie",
-      description: "Met Diktat AI transformeert u uw audio-opnames snel en moeiteloos naar tekst via ons veilige platform."
+      titleStart: "Van audio naar tekst",
+      titleHighlight: "in seconden",
+      description: "Transcriptie vereenvoudigd voor bedrijven. Veilig, nauwkeurig en direct geïntegreerd in uw workflow."
     },
-    process: { title: "Zo werkt Diktat AI" },
+    howItWorks: {
+      title: "Zo werkt het",
+      subtitle: "Drie eenvoudige stappen naar perfecte documentatie."
+    },
     steps: {
       step1: {
-        title: "Stap 1: Opname uploaden",
-        description: "Upload uw audiobestand (bijv. MP3, WAV, M4A van meetings, interviews, dictaten) met slechts één klik via ons veilige webplatform."
+        label: "Uploaden",
+        title: "Uploaden of verzenden",
+        description: "Sleep elk bestandsformaat (MP3, WAV) of synchroniseer automatisch via onze beveiligde API.",
+        formats: ["MP3", "WAV", "M4A"],
+        integrations: ["Dropbox", "Drive"]
       },
       step2: {
-        title: "Stap 2: AI doet het werk",
-        description: "Leun achterover! Onze geavanceerde kunstmatige intelligentie analyseert uw opname veilig en GDPR-conform."
+        label: "Verwerken",
+        title: "AI-verwerking",
+        description: "Onze engine transcribeert met 99% nauwkeurigheid in seconden en identificeert sprekers automatisch."
       },
       step3: {
-        title: "Stap 3: Transcriptie ontvangen & gebruiken",
-        description: "Zodra de transcriptie klaar is, vindt u uw tekst direct in uw account. Download hem als bestand of kopieer hem direct."
+        label: "Voltooien",
+        title: "Controleren & exporteren",
+        description: "Verfijn in onze slimme editor en exporteer naar PDF, DOCX of SRT direct naar uw team."
       }
     },
+    technicalSection: {
+      title: "Technische details",
+      euHosted: {
+        title: "EU-gehost",
+        description: "Uw gegevens verlaten nooit de Europese Unie. We gebruiken servers in Frankfurt & Dublin."
+      },
+      gdprCompliant: {
+        title: "GDPR-conform",
+        description: "Enterprise-versleuteling in rust (AES-256) en tijdens overdracht (TLS 1.3)."
+      }
+    },
+    stickyCta: {
+      subtitle: "Klaar voor professionele transcriptie?",
+      button: "Zakelijk account aanmaken",
+      note: "Geen creditcard nodig voor proefversie"
+    },
+    process: { title: "Zo werkt Diktat AI" },
     summary: {
       title: "Dat is alles!",
       description: "Geen moeizaam uittypen, geen ingewikkelde omwegen. Slechts drie duidelijke stappen scheiden u van uw transcriptie."
@@ -124,25 +206,52 @@ export const howItWorksTranslations = {
       title: "Cómo funciona la transcripción IA en 3 pasos | Diktat AI",
       description: "Descubra lo fácil que es el reconocimiento de voz con Diktat AI. Transforme sus grabaciones en texto en solo 3 pasos."
     },
+    badge: "Enterprise Ready",
     hero: {
-      title: "Obtenga su transcripción en 3 sencillos pasos",
-      description: "Con Diktat AI, transforme sus grabaciones de audio en texto de forma rápida y sin esfuerzo a través de nuestra plataforma segura."
+      titleStart: "De audio a texto",
+      titleHighlight: "en segundos",
+      description: "Transcripción simplificada para empresas. Segura, precisa e integrada directamente en su flujo de trabajo."
     },
-    process: { title: "Cómo funciona Diktat AI" },
+    howItWorks: {
+      title: "Cómo funciona",
+      subtitle: "Tres simples pasos para una documentación perfecta."
+    },
     steps: {
       step1: {
-        title: "Paso 1: Subir grabación",
-        description: "Suba su archivo de audio (por ejemplo, MP3, WAV, M4A de reuniones, entrevistas) con un solo clic a través de nuestra plataforma web segura."
+        label: "Subir",
+        title: "Subir o enviar",
+        description: "Arrastre y suelte cualquier formato (MP3, WAV) o sincronice automáticamente vía nuestra API segura.",
+        formats: ["MP3", "WAV", "M4A"],
+        integrations: ["Dropbox", "Drive"]
       },
       step2: {
-        title: "Paso 2: La IA hace el trabajo",
-        description: "¡Relájese! Nuestra inteligencia artificial avanzada analiza su grabación de forma segura y conforme al RGPD."
+        label: "Procesar",
+        title: "Procesamiento IA",
+        description: "Nuestro motor transcribe con 99% de precisión en segundos, identificando hablantes automáticamente."
       },
       step3: {
-        title: "Paso 3: Recibir y usar la transcripción",
-        description: "Una vez que la transcripción esté completa, encontrará su texto directamente en su cuenta. Descárguelo o cópielo directamente."
+        label: "Finalizar",
+        title: "Revisar y exportar",
+        description: "Perfeccione en nuestro editor inteligente y exporte a PDF, DOCX o SRT directamente a su equipo."
       }
     },
+    technicalSection: {
+      title: "Detalles técnicos",
+      euHosted: {
+        title: "Alojado en la UE",
+        description: "Sus datos nunca salen de la Unión Europea. Usamos servidores dedicados en Frankfurt y Dublín."
+      },
+      gdprCompliant: {
+        title: "Conforme al RGPD",
+        description: "Cifrado empresarial en reposo (AES-256) y en tránsito (TLS 1.3)."
+      }
+    },
+    stickyCta: {
+      subtitle: "¿Listo para transcripción profesional?",
+      button: "Crear cuenta empresarial",
+      note: "No se requiere tarjeta de crédito para la prueba"
+    },
+    process: { title: "Cómo funciona Diktat AI" },
     summary: {
       title: "¡Eso es todo!",
       description: "Sin escritura tediosa, sin desvíos complicados. Solo tres pasos claros lo separan de su transcripción."
@@ -164,25 +273,52 @@ export const howItWorksTranslations = {
       title: "Comment fonctionne la transcription IA en 3 étapes | Diktat AI",
       description: "Découvrez à quel point la reconnaissance vocale est facile avec Diktat AI. Transformez vos enregistrements en texte en 3 étapes."
     },
+    badge: "Enterprise Ready",
     hero: {
-      title: "Obtenez votre transcription en 3 étapes simples",
-      description: "Avec Diktat AI, transformez vos enregistrements audio en texte rapidement et sans effort via notre plateforme sécurisée."
+      titleStart: "De l'audio au texte",
+      titleHighlight: "en quelques secondes",
+      description: "Transcription simplifiée pour les entreprises. Sécurisée, précise et intégrée directement dans votre workflow."
     },
-    process: { title: "Comment fonctionne Diktat AI" },
+    howItWorks: {
+      title: "Comment ça marche",
+      subtitle: "Trois étapes simples pour une documentation parfaite."
+    },
     steps: {
       step1: {
-        title: "Étape 1 : Télécharger l'enregistrement",
-        description: "Téléchargez votre fichier audio (par ex. MP3, WAV, M4A de réunions, interviews) en un seul clic via notre plateforme web sécurisée."
+        label: "Télécharger",
+        title: "Télécharger ou envoyer",
+        description: "Glissez-déposez n'importe quel format (MP3, WAV) ou synchronisez automatiquement via notre API sécurisée.",
+        formats: ["MP3", "WAV", "M4A"],
+        integrations: ["Dropbox", "Drive"]
       },
       step2: {
-        title: "Étape 2 : L'IA fait le travail",
-        description: "Détendez-vous ! Notre IA avancée analyse votre enregistrement de manière sécurisée et conforme au RGPD."
+        label: "Traiter",
+        title: "Traitement IA",
+        description: "Notre moteur transcrit avec 99% de précision en quelques secondes, identifiant les intervenants automatiquement."
       },
       step3: {
-        title: "Étape 3 : Recevoir et utiliser la transcription",
-        description: "Une fois la transcription terminée, vous trouverez votre texte directement dans votre compte. Téléchargez-le ou copiez-le directement."
+        label: "Finaliser",
+        title: "Réviser et exporter",
+        description: "Peaufinez dans notre éditeur intelligent et exportez en PDF, DOCX ou SRT directement vers votre équipe."
       }
     },
+    technicalSection: {
+      title: "Détails techniques",
+      euHosted: {
+        title: "Hébergé dans l'UE",
+        description: "Vos données ne quittent jamais l'Union européenne. Nous utilisons des serveurs dédiés à Francfort et Dublin."
+      },
+      gdprCompliant: {
+        title: "Conforme au RGPD",
+        description: "Chiffrement de niveau entreprise au repos (AES-256) et en transit (TLS 1.3)."
+      }
+    },
+    stickyCta: {
+      subtitle: "Prêt pour une transcription professionnelle ?",
+      button: "Créer un compte entreprise",
+      note: "Aucune carte de crédit requise pour l'essai"
+    },
+    process: { title: "Comment fonctionne Diktat AI" },
     summary: {
       title: "C'est tout !",
       description: "Pas de frappe fastidieuse, pas de détours compliqués. Seulement trois étapes claires vous séparent de votre transcription."
@@ -204,25 +340,52 @@ export const howItWorksTranslations = {
       title: "Hur AI-transkription fungerar i 3 steg | Diktat AI",
       description: "Upptäck hur enkel röstigenkänning är med Diktat AI. Omvandla dina ljudinspelningar till text i bara 3 steg."
     },
+    badge: "Enterprise Ready",
     hero: {
-      title: "Få din färdiga transkription i 3 enkla steg",
-      description: "Med Diktat AI omvandlar du dina ljudinspelningar snabbt och enkelt till text via vår säkra plattform."
+      titleStart: "Från ljud till text",
+      titleHighlight: "på sekunder",
+      description: "Transkription förenklad för företag. Säker, exakt och integrerad direkt i ditt arbetsflöde."
     },
-    process: { title: "Så fungerar Diktat AI" },
+    howItWorks: {
+      title: "Så fungerar det",
+      subtitle: "Tre enkla steg till perfekt dokumentation."
+    },
     steps: {
       step1: {
-        title: "Steg 1: Ladda upp inspelning",
-        description: "Ladda upp din ljudfil (t.ex. MP3, WAV, M4A från möten, intervjuer) med bara ett klick via vår säkra webbplattform."
+        label: "Ladda upp",
+        title: "Ladda upp eller skicka",
+        description: "Dra och släpp valfritt format (MP3, WAV) eller synkronisera automatiskt via vårt säkra API.",
+        formats: ["MP3", "WAV", "M4A"],
+        integrations: ["Dropbox", "Drive"]
       },
       step2: {
-        title: "Steg 2: AI gör jobbet",
-        description: "Luta dig tillbaka! Vår avancerade AI analyserar din inspelning säkert och GDPR-kompatibelt."
+        label: "Bearbeta",
+        title: "AI-bearbetning",
+        description: "Vår motor transkriberar med 99% noggrannhet på sekunder och identifierar talare automatiskt."
       },
       step3: {
-        title: "Steg 3: Ta emot och använd transkription",
-        description: "När transkriptionen är klar hittar du din text direkt i ditt konto. Ladda ner den eller kopiera den direkt."
+        label: "Slutför",
+        title: "Granska och exportera",
+        description: "Finjustera i vår smarta redigerare och exportera till PDF, DOCX eller SRT direkt till ditt team."
       }
     },
+    technicalSection: {
+      title: "Tekniska detaljer",
+      euHosted: {
+        title: "EU-värd",
+        description: "Dina data lämnar aldrig Europeiska unionen. Vi använder dedikerade servrar i Frankfurt och Dublin."
+      },
+      gdprCompliant: {
+        title: "GDPR-kompatibel",
+        description: "Företagskryptering i vila (AES-256) och under överföring (TLS 1.3)."
+      }
+    },
+    stickyCta: {
+      subtitle: "Redo för professionell transkription?",
+      button: "Skapa företagskonto",
+      note: "Inget kreditkort krävs för provperioden"
+    },
+    process: { title: "Så fungerar Diktat AI" },
     summary: {
       title: "Det var allt!",
       description: "Ingen tråkig skrivning, inga komplicerade omvägar. Bara tre tydliga steg skiljer dig från din färdiga transkription."
