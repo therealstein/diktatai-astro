@@ -7,9 +7,9 @@
 (function() {
   // Check if coming from Meta ads
   function isFromMetaAds() {
-    const params = new URLSearchParams(window.location.search);
-    const fbclid = params.get('fbclid');
-    const utmSource = (params.get('utm_source') || '').toLowerCase();
+    var params = new URLSearchParams(window.location.search);
+    var fbclid = params.get('fbclid');
+    var utmSource = (params.get('utm_source') || '').toLowerCase();
 
     // Also check sessionStorage in case user navigates within site
     if (sessionStorage.getItem('meta_ads_visitor') === 'true') {
@@ -22,6 +22,24 @@
     }
 
     return false;
+  }
+
+  // Get page info for tracking
+  function getPageInfo() {
+    var path = window.location.pathname;
+    var pageName = 'homepage';
+
+    if (path !== '/' && path !== '') {
+      // Extract page name from path, e.g., /en/pricing -> pricing
+      var parts = path.split('/').filter(Boolean);
+      pageName = parts[parts.length - 1] || 'homepage';
+    }
+
+    return {
+      page_name: pageName,
+      page_path: path,
+      page_locale: document.documentElement.lang || 'de'
+    };
   }
 
   // Initialize Meta Pixel
@@ -46,10 +64,22 @@
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', null, null, null);
 
     window.fbq('init', '672991722114455');
+
+    // Track PageView
     window.fbq('track', 'PageView');
+
+    // Track ViewContent with page details
+    var pageInfo = getPageInfo();
+    window.fbq('track', 'ViewContent', {
+      content_name: 'Page: ' + pageInfo.page_name,
+      content_category: 'page_view',
+      content_ids: [pageInfo.page_path],
+      content_type: 'page',
+      language: pageInfo.page_locale
+    });
   }
 
-  // Track custom events
+  // Track custom events - exposed globally
   window.trackMetaEvent = function(eventName, data, isStandard) {
     if (window.fbq) {
       if (isStandard) {
@@ -57,6 +87,18 @@
       } else {
         window.fbq('trackCustom', eventName, data);
       }
+    }
+  };
+
+  // Convenience function for ViewContent tracking
+  window.trackMetaViewContent = function(contentName, contentCategory, contentIds) {
+    if (window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_name: contentName,
+        content_category: contentCategory || 'content',
+        content_ids: contentIds || [],
+        content_type: 'product'
+      });
     }
   };
 
@@ -77,10 +119,38 @@
       var ctaName = target.getAttribute('data-track-cta');
       window.trackMetaEvent('InitiateCheckout', {
         content_name: ctaName,
-        content_category: 'cta_click'
+        content_category: 'cta_click',
+        content_ids: [ctaName]
       }, true);
     }
   });
+
+  // Track section views via data-track-view attribute using IntersectionObserver
+  if ('IntersectionObserver' in window) {
+    var viewedSections = {};
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && window.trackMetaEvent) {
+          var sectionName = entry.target.getAttribute('data-track-view');
+          if (sectionName && !viewedSections[sectionName]) {
+            viewedSections[sectionName] = true;
+            window.trackMetaEvent('ViewContent', {
+              content_name: 'Section: ' + sectionName,
+              content_category: 'section_view',
+              content_ids: [sectionName]
+            }, true);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Observe elements after DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[data-track-view]').forEach(function(el) {
+        observer.observe(el);
+      });
+    });
+  }
 })();
 </script>
 
