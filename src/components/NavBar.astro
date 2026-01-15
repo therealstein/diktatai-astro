@@ -39,7 +39,7 @@ const registerUrl = getRegisterUrl(locale);
       <a href={appUrls.login} class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-pink-600 transition-colors rounded-lg hover:bg-slate-100">
         {t('nav.login')}
       </a>
-      <a href={registerUrl} class="ml-2 px-5 py-2.5 bg-gradient-to-r from-pink-500 to-blue-600 text-white font-bold text-sm rounded-lg hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-pink-500/20">
+      <a href={registerUrl} class="ml-2 px-5 py-2.5 bg-gradient-to-r from-pink-500 to-blue-600 text-white font-bold text-sm rounded-lg hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-pink-500/20" data-track-cta="header_try_free">
         {t('nav.startFree')}
       </a>
     </nav>
@@ -103,6 +103,7 @@ const registerUrl = getRegisterUrl(locale);
       <a
         href={registerUrl}
         class="w-full h-14 bg-gradient-to-r from-pink-500 to-blue-600 hover:opacity-90 active:scale-[0.98] transition-all rounded-lg flex items-center justify-center gap-2 text-white font-bold text-lg shadow-lg shadow-pink-500/30"
+        data-track-cta="mobile_menu_try_free"
       >
         <span>{t('nav.startFree')}</span>
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -3,6 +3,7 @@ import '../styles/global.css';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
+import MetaPixel from '../components/MetaPixel.astro';
 import { localeInfo, type Locale, getLocalePath, type RouteKey } from '../i18n/utils';
 
 interface Props {
@@ -202,6 +203,7 @@ const orgSchema = {
     </main>
     <Footer locale={locale} routeKey={routeKey} />
     <ConsentBanner locale={locale} />
+    <MetaPixel />
 
     <!-- Google Tag Manager - loaded after user interaction or 3 second delay to reduce LCP impact -->
     <script is:inline>

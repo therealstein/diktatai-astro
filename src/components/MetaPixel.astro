@@ -1,0 +1,96 @@
+---
+// Meta Pixel - loads only when visitor comes from Meta ads
+// Detected via fbclid parameter or utm_source=facebook/instagram/meta
+---
+
+<script is:inline>
+(function() {
+  // Check if coming from Meta ads
+  function isFromMetaAds() {
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get('fbclid');
+    const utmSource = (params.get('utm_source') || '').toLowerCase();
+
+    // Also check sessionStorage in case user navigates within site
+    if (sessionStorage.getItem('meta_ads_visitor') === 'true') {
+      return true;
+    }
+
+    if (fbclid || utmSource === 'facebook' || utmSource === 'instagram' || utmSource === 'meta' || utmSource === 'fb') {
+      sessionStorage.setItem('meta_ads_visitor', 'true');
+      return true;
+    }
+
+    return false;
+  }
+
+  // Initialize Meta Pixel
+  function initMetaPixel() {
+    if (window.fbq) return;
+
+    (function(f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', null, null, null);
+
+    window.fbq('init', '672991722114455');
+    window.fbq('track', 'PageView');
+  }
+
+  // Track custom events
+  window.trackMetaEvent = function(eventName, data, isStandard) {
+    if (window.fbq) {
+      if (isStandard) {
+        window.fbq('track', eventName, data);
+      } else {
+        window.fbq('trackCustom', eventName, data);
+      }
+    }
+  };
+
+  // Only init if from Meta ads
+  if (isFromMetaAds()) {
+    // Defer loading to not block page render
+    if (document.readyState === 'complete') {
+      initMetaPixel();
+    } else {
+      window.addEventListener('load', initMetaPixel);
+    }
+  }
+
+  // Track CTA clicks via data-track-cta attribute
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('[data-track-cta]');
+    if (target && window.trackMetaEvent) {
+      var ctaName = target.getAttribute('data-track-cta');
+      window.trackMetaEvent('InitiateCheckout', {
+        content_name: ctaName,
+        content_category: 'cta_click'
+      }, true);
+    }
+  });
+})();
+</script>
+
+<!-- Meta Pixel noscript fallback - only renders if JS detects Meta ads visitor -->
+<noscript>
+  <img
+    height="1"
+    width="1"
+    style="display:none"
+    src="https://www.facebook.com/tr?id=672991722114455&ev=PageView&noscript=1"
+    alt=""
+  />
+</noscript>
