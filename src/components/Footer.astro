@@ -27,66 +27,81 @@ const technologyPath = getLocalePath('aiSpeechRecognition', locale);
 const aboutPath = getLocalePath('about', locale);
 const helpPath = getLocalePath('help', locale);
 const contactPath = getLocalePath('contact', locale);
+const homePath = getLocalePath('index', locale);
 
 // Available locales for language switcher (excluding current)
 const availableLocales = locales.filter(l => l !== locale);
 ---
 
-<footer class="bg-base-100 border-t">
+<footer class="bg-slate-50 text-slate-900 border-t border-slate-200">
   <!-- Main footer content -->
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="flex flex-col lg:flex-row lg:justify-between">
+  <div class="max-w-7xl mx-auto px-5 pt-16 pb-8">
+    <!-- Top section: Brand + Links -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
       <!-- Brand section -->
-      <div class="space-y-4 mb-10 lg:mb-0 lg:max-w-xs">
-        <h2 class="font-display text-2xl font-bold">{t('footer.title')}</h2>
-        <p class="text-sm text-gray-500">
+      <div class="lg:col-span-4 space-y-6">
+        <a href={homePath || '/'} class="inline-flex items-center gap-2 group">
+          <img src="/logo-dai.svg" alt="Diktat AI Logo" class="h-8 w-auto" />
+          <span class="text-2xl font-bold tracking-tight font-display" style="background:linear-gradient(to right, #ee56a4, #253a96);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            DiktatAI
+          </span>
+        </a>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-xs">
           {t('footer.description')}
         </p>
+        <!-- Compliance badge -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <div class="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-medium shadow-sm">
+            <img src="/EU.svg" alt="EU Flag" class="w-4 h-3 object-cover rounded-sm" />
+            <span class="text-slate-600">{t('footer.gdpr')}</span>
+          </div>
+        </div>
       </div>
 
       <!-- Link sections -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
+      <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+        <!-- Professions -->
         <div>
-          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.professions')}</h3>
-          <ul class="mt-4 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">{t('footer.professions')}</h3>
+          <ul class="space-y-3">
             {coachesPath && (
               <li>
-                <a href={coachesPath} class="text-sm hover:text-primary transition-colors">
+                <a href={coachesPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.consultants')}
                 </a>
               </li>
             )}
             {contentcreatorsPath && (
               <li>
-                <a href={contentcreatorsPath} class="text-sm hover:text-primary transition-colors">
+                <a href={contentcreatorsPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.contentCreators')}
                 </a>
               </li>
             )}
             {lawyersPath && (
               <li>
-                <a href={lawyersPath} class="text-sm hover:text-primary transition-colors">
+                <a href={lawyersPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.lawyers')}
                 </a>
               </li>
             )}
             {mediaPath && (
               <li>
-                <a href={mediaPath} class="text-sm hover:text-primary transition-colors">
+                <a href={mediaPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.journalists')}
                 </a>
               </li>
             )}
             {studentsPath && (
               <li>
-                <a href={studentsPath} class="text-sm hover:text-primary transition-colors">
+                <a href={studentsPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.students')}
                 </a>
               </li>
             )}
             {salesPath && (
               <li>
-                <a href={salesPath} class="text-sm hover:text-primary transition-colors">
+                <a href={salesPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.businessLeaders')}
                 </a>
               </li>
@@ -94,74 +109,41 @@ const availableLocales = locales.filter(l => l !== locale);
           </ul>
         </div>
 
+        <!-- Company -->
         <div>
-          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.legal')}</h3>
-          <ul class="mt-4 space-y-3">
-            {termsPath && (
-              <li>
-                <a href={termsPath} class="text-sm hover:text-primary transition-colors">
-                  {t('footer.terms')}
-                </a>
-              </li>
-            )}
-            {privacyPath && (
-              <li>
-                <a href={privacyPath} class="text-sm hover:text-primary transition-colors">
-                  {t('footer.privacy')}
-                </a>
-              </li>
-            )}
-            {datasafetyPath && (
-              <li>
-                <a href={datasafetyPath} class="text-sm hover:text-primary transition-colors">
-                  {t('footer.aiSecurity')}
-                </a>
-              </li>
-            )}
-            {imprintPath && (
-              <li>
-                <a href={imprintPath} class="text-sm hover:text-primary transition-colors">
-                  {t('footer.imprint')}
-                </a>
-              </li>
-            )}
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.company')}</h3>
-          <ul class="mt-4 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">{t('footer.company')}</h3>
+          <ul class="space-y-3">
             {pricingPath && (
               <li>
-                <a href={pricingPath} class="text-sm hover:text-primary transition-colors">
+                <a href={pricingPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.pricing')}
                 </a>
               </li>
             )}
             {technologyPath && (
               <li>
-                <a href={technologyPath} class="text-sm hover:text-primary transition-colors">
+                <a href={technologyPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.technology')}
                 </a>
               </li>
             )}
             {aboutPath && (
               <li>
-                <a href={aboutPath} class="text-sm hover:text-primary transition-colors">
+                <a href={aboutPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.about')}
                 </a>
               </li>
             )}
             {helpPath && (
               <li>
-                <a href={helpPath} class="text-sm hover:text-primary transition-colors">
+                <a href={helpPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.help')}
                 </a>
               </li>
             )}
             {contactPath && (
               <li>
-                <a href={contactPath} class="text-sm hover:text-primary transition-colors">
+                <a href={contactPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
                   {t('footer.contact')}
                 </a>
               </li>
@@ -169,52 +151,78 @@ const availableLocales = locales.filter(l => l !== locale);
           </ul>
         </div>
 
+        <!-- Legal -->
         <div>
-          <h3 class="font-display text-sm font-semibold uppercase tracking-wider">{t('footer.compliance')}</h3>
-          <ul class="mt-4 space-y-3">
-            <li class="text-sm">
-              <div class="flex items-center gap-2 mb-1">
-                <img src="/EU.svg" alt="EU Flag" class="w-4 h-4" />
-                <img src="/DE.svg" alt="German Flag" class="w-4 h-4" />
-                <span>{t('footer.gdpr')}</span>
-              </div>
-              <div>{t('footer.aiDataProcessing')}</div>
-            </li>
-            <li class="text-sm flex items-center gap-2">
-              <img src="/UA.svg" alt="Ukraine Flag" class="w-4 h-4" onerror="this.style.display='none'" />
-              {t('footer.standWithUkraine')}
-            </li>
+          <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">{t('footer.legal')}</h3>
+          <ul class="space-y-3">
+            {termsPath && (
+              <li>
+                <a href={termsPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
+                  {t('footer.terms')}
+                </a>
+              </li>
+            )}
+            {privacyPath && (
+              <li>
+                <a href={privacyPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
+                  {t('footer.privacy')}
+                </a>
+              </li>
+            )}
+            {datasafetyPath && (
+              <li>
+                <a href={datasafetyPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
+                  {t('footer.aiSecurity')}
+                </a>
+              </li>
+            )}
+            {imprintPath && (
+              <li>
+                <a href={imprintPath} class="text-sm text-slate-500 hover:text-pink-600 transition-colors">
+                  {t('footer.imprint')}
+                </a>
+              </li>
+            )}
           </ul>
         </div>
+
+        <!-- Language Selector -->
+        {!hideLanguageSelector && (
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">{t('footer.language')}</h3>
+            <div class="space-y-2">
+              <!-- Current language (highlighted) -->
+              <div class="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-lg shadow-sm">
+                <img src={localeInfo[locale].flag} alt={localeInfo[locale].name} class="w-5 h-4 object-cover rounded-sm" />
+                <span class="text-sm font-medium text-slate-900">{localeInfo[locale].name}</span>
+              </div>
+              <!-- Other languages -->
+              <div class="grid grid-cols-1 gap-1">
+                {availableLocales.map((l) => {
+                  const path = routeKey ? getLocalePath(routeKey, l) : getLocalePath('index', l);
+                  const finalPath = path || getLocalePath('index', l);
+                  return finalPath && (
+                    <a
+                      href={finalPath}
+                      class="flex items-center gap-2 px-3 py-2 text-sm text-slate-500 hover:text-pink-600 hover:bg-white rounded-lg transition-colors"
+                    >
+                      <img src={localeInfo[l].flag} alt={localeInfo[l].name} class="w-5 h-4 object-cover rounded-sm" />
+                      <span>{localeInfo[l].name}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
 
-    <!-- Bottom section with copyright -->
-    <div class="mt-12 pt-8 border-t border-gray-200">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-sm text-gray-500">{t('footer.copyright', { year: currentYear })}</p>
-        <div class="mt-4 md:mt-0 flex items-center space-x-3">
-          <div class="flex items-center gap-2">
-            <img src={localeInfo[locale].flag} alt={`${localeInfo[locale].name} Flag`} class="w-4 h-4" />
-            <span class="text-sm text-gray-500">{localeInfo[locale].name}</span>
-          </div>
-          {!hideLanguageSelector && availableLocales.map((l) => {
-            // Use current page's route if available, otherwise fallback to index
-            const path = routeKey ? getLocalePath(routeKey, l) : getLocalePath('index', l);
-            // If route doesn't exist for this locale, fallback to index
-            const finalPath = path || getLocalePath('index', l);
-            return finalPath && (
-              <a
-                href={finalPath}
-                class="flex items-center gap-2 text-sm hover:text-primary transition-colors"
-              >
-                <img src={localeInfo[l].flag} alt={`${localeInfo[l].name} Flag`} class="w-4 h-4" />
-                {localeInfo[l].name}
-              </a>
-            );
-          })}
-        </div>
-      </div>
+    <!-- Divider -->
+    <div class="border-t border-slate-200 mt-12 pt-8">
+      <p class="text-sm text-slate-400 text-center">
+        {t('footer.copyright', { year: currentYear })}
+      </p>
     </div>
   </div>
 </footer>

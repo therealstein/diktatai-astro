@@ -4,6 +4,9 @@ export const translations = {
       howitworks: 'KI Transkription',
       pricing: 'Preise',
       login: 'Anmelden',
+      menu: 'Menü',
+      startFree: 'Kostenlos testen',
+      noCreditCard: 'Keine Kreditkarte erforderlich.',
     },
     hero: {
       title: 'Transkribieren mit Diktat AI',
@@ -186,6 +189,9 @@ export const translations = {
       howitworks: 'AI Transcription',
       pricing: 'Pricing',
       login: 'Login',
+      menu: 'Menu',
+      startFree: 'Try it free',
+      noCreditCard: 'No credit card required.',
     },
     hero: {
       title: 'Autowrite with Dictate AI',
@@ -368,6 +374,9 @@ export const translations = {
       howitworks: 'AI Transcriptie',
       pricing: 'Prijzen',
       login: 'Inloggen',
+      menu: 'Menu',
+      startFree: 'Gratis uitproberen',
+      noCreditCard: 'Geen creditcard nodig.',
     },
     hero: {
       title: 'Transcriberen met Diktat AI',
@@ -550,6 +559,9 @@ export const translations = {
       howitworks: 'Transcripción IA',
       pricing: 'Precios',
       login: 'Iniciar sesión',
+      menu: 'Menú',
+      startFree: 'Pruébalo gratis',
+      noCreditCard: 'Sin tarjeta de crédito.',
     },
     hero: {
       title: 'Transcribir con Diktat AI',
@@ -732,6 +744,9 @@ export const translations = {
       howitworks: 'Transcription IA',
       pricing: 'Tarifs',
       login: 'Se connecter',
+      menu: 'Menu',
+      startFree: 'Essai gratuit',
+      noCreditCard: 'Sans carte bancaire.',
     },
     hero: {
       title: 'Transcrire avec Diktat AI',
@@ -914,6 +929,9 @@ export const translations = {
       howitworks: 'AI-transkribering',
       pricing: 'Priser',
       login: 'Logga in',
+      menu: 'Meny',
+      startFree: 'Testa gratis',
+      noCreditCard: 'Inget kreditkort krävs.',
     },
     hero: {
       title: 'Transkribera med Diktat AI',
