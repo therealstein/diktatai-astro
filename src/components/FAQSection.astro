@@ -13,11 +13,14 @@ const faq = faqTranslations[locale] || faqTranslations.de;
 const questionsPath = getLocalePath('questions', locale);
 const contactPath = getLocalePath('contact', locale);
 
-// Generate FAQ Schema
+// Flatten all items for schema
+const allItems = faq.categories?.flatMap(cat => cat.items) || faq.items;
+
+// Generate FAQ Schema for SEO
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faq.items.map((item) => ({
+  mainEntity: allItems.map((item) => ({
     '@type': 'Question',
     name: item.title,
     acceptedAnswer: {
@@ -26,87 +29,233 @@ const faqSchema = {
     },
   })),
 };
+
+// Icon components
+const icons = {
+  info: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>`,
+  star: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>`,
+  shield: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>`,
+  play: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>`,
+  chevron: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`,
+};
 ---
 
-<div class="container mx-auto px-4 py-16">
-  <h2 class="font-display text-4xl font-bold text-center mb-4 tracking-tight">
-    {faq.title}
-  </h2>
-  <p class="text-lg font-medium text-base-content/80 max-w-3xl mx-auto text-center mb-12 leading-relaxed">
-    {faq.description}
-  </p>
+<section class="bg-base-200 py-16" id="faq">
+  <div class="container mx-auto px-4">
+    <h2 class="font-display text-4xl font-bold text-center mb-4 tracking-tight">
+      {faq.title}
+    </h2>
+    <p class="text-lg font-medium text-base-content/80 max-w-3xl mx-auto text-center mb-12 leading-relaxed">
+      {faq.description}
+    </p>
 
-  <div class="max-w-4xl mx-auto space-y-6">
-    {faq.items.map((item, index) => (
-      <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300">
-        <div class="card-body">
-          <h3 class="card-title font-display text-xl font-bold">
-            {item.title}
-          </h3>
-          <p class="text-base-content/80 leading-relaxed mb-4">
-            {item.description}
-          </p>
-          {item.list && (
-            <ul class="list-disc list-inside space-y-2 text-base-content/80">
-              {item.list.map((listItem) => (
-                <li>
-                  <strong>{listItem}</strong>
-                </li>
-              ))}
-            </ul>
-          )}
-          {item.steps && (
-            <>
-              <ol class="list-decimal list-inside space-y-2 text-base-content/80">
-                {item.steps.map((step) => (
-                  <li>{step}</li>
+    {faq.categories ? (
+      <div class="max-w-4xl mx-auto space-y-6">
+        {faq.categories.map((category, categoryIndex) => (
+          <div class="faq-category card bg-base-100 shadow-lg overflow-hidden" data-category={category.id}>
+            <button
+              class="category-header w-full flex items-center justify-between p-6 text-left hover:bg-base-200/50 transition-colors cursor-pointer"
+              aria-expanded="false"
+              aria-controls={`category-${category.id}`}
+            >
+              <div class="flex items-center gap-3">
+                <span class="text-pink-500" set:html={icons[category.icon as keyof typeof icons] || icons.info} />
+                <h3 class="font-display text-xl font-bold">{category.title}</h3>
+                <span class="badge badge-ghost badge-sm">{category.items.length}</span>
+              </div>
+              <span class="chevron-icon text-base-content/60" set:html={icons.chevron} />
+            </button>
+
+            <div id={`category-${category.id}`} class="category-content hidden">
+              <div class="px-6 pb-6 space-y-4">
+                {category.items.map((item, itemIndex) => (
+                  <div class="faq-item border border-base-300 rounded-lg overflow-hidden">
+                    <button
+                      class="faq-question w-full flex items-center justify-between p-4 text-left hover:bg-base-200/30 transition-colors cursor-pointer"
+                      aria-expanded="false"
+                      aria-controls={`faq-${category.id}-${itemIndex}`}
+                    >
+                      <span class="font-medium text-base-content pr-4">{item.title}</span>
+                      <span class="faq-chevron text-base-content/60 flex-shrink-0" set:html={icons.chevron} />
+                    </button>
+
+                    <div id={`faq-${category.id}-${itemIndex}`} class="faq-answer hidden">
+                      <div class="px-4 pb-4 text-base-content/80">
+                        <p class="leading-relaxed mb-3">{item.description}</p>
+
+                        {item.list && (
+                          <ul class="list-disc list-inside space-y-2 ml-2">
+                            {item.list.map((listItem) => (
+                              <li class="text-sm">
+                                <span set:html={listItem.replace(/^([^:]+):/, '<strong>$1:</strong>')} />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {item.steps && (
+                          <>
+                            <ol class="list-decimal list-inside space-y-2 ml-2 mb-3">
+                              {item.steps.map((step) => (
+                                <li class="text-sm">{step}</li>
+                              ))}
+                            </ol>
+                            {item.conclusion && (
+                              <p class="text-sm italic text-base-content/70">{item.conclusion}</p>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 ))}
-              </ol>
-              {item.conclusion && (
-                <p class="text-base-content/80 leading-relaxed mt-4">
-                  {item.conclusion}
-                </p>
-              )}
-            </>
-          )}
-        </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
+    ) : (
+      <div class="max-w-4xl mx-auto space-y-4">
+        {faq.items.map((item, index) => (
+          <div class="faq-item card bg-base-100 shadow-lg overflow-hidden">
+            <button
+              class="faq-question w-full flex items-center justify-between p-6 text-left hover:bg-base-200/30 transition-colors cursor-pointer"
+              aria-expanded="false"
+              aria-controls={`faq-legacy-${index}`}
+            >
+              <h3 class="font-display text-lg font-bold pr-4">{item.title}</h3>
+              <span class="faq-chevron text-base-content/60 flex-shrink-0" set:html={icons.chevron} />
+            </button>
 
-  <div class="text-center mt-12">
-    <p class="text-lg font-medium text-base-content/80 mb-4">
-      {faq.stillHaveQuestions}
-    </p>
-    <p class="text-base text-base-content/70 max-w-2xl mx-auto mb-6">
-      {faq.reachOutText}
-    </p>
-    {questionsPath ? (
-      <a
-        href={questionsPath}
-        class="font-display bg-purple-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide inline-block"
-      >
-        {faq.moreQuestions}
-      </a>
-    ) : contactPath ? (
-      <a
-        href={contactPath}
-        class="font-display bg-purple-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide inline-block"
-      >
-        {faq.moreQuestions}
-      </a>
-    ) : null}
+            <div id={`faq-legacy-${index}`} class="faq-answer hidden">
+              <div class="px-6 pb-6 text-base-content/80">
+                <p class="leading-relaxed mb-4">{item.description}</p>
+                {item.list && (
+                  <ul class="list-disc list-inside space-y-2">
+                    {item.list.map((listItem) => (
+                      <li><strong>{listItem}</strong></li>
+                    ))}
+                  </ul>
+                )}
+                {item.steps && (
+                  <>
+                    <ol class="list-decimal list-inside space-y-2">
+                      {item.steps.map((step) => (
+                        <li>{step}</li>
+                      ))}
+                    </ol>
+                    {item.conclusion && (
+                      <p class="mt-4">{item.conclusion}</p>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <div class="text-center mt-12">
+      <p class="text-lg font-medium text-base-content/80 mb-4">
+        {faq.stillHaveQuestions}
+      </p>
+      <p class="text-base text-base-content/70 max-w-2xl mx-auto mb-6">
+        {faq.reachOutText}
+      </p>
+      {questionsPath ? (
+        <a
+          href={questionsPath}
+          class="font-display bg-purple-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide inline-block"
+        >
+          {faq.moreQuestions}
+        </a>
+      ) : contactPath ? (
+        <a
+          href={contactPath}
+          class="font-display bg-purple-500 text-white text-xl font-bold py-4 px-12 rounded-full hover:bg-pink-600 transition-all shadow-lg tracking-wide inline-block"
+        >
+          {faq.moreQuestions}
+        </a>
+      ) : null}
+    </div>
   </div>
-</div>
+</section>
 
 <!-- FAQ Schema for SEO -->
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
+<script>
+  // Accordion functionality for categories
+  document.querySelectorAll('.category-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const category = header.closest('.faq-category');
+      const content = category?.querySelector('.category-content');
+      const chevron = header.querySelector('.chevron-icon svg');
+      const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current category
+      header.setAttribute('aria-expanded', String(!isExpanded));
+      content?.classList.toggle('hidden');
+      chevron?.classList.toggle('rotate-180');
+    });
+  });
+
+  // Accordion functionality for individual FAQ items
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.closest('.faq-item');
+      const answer = item?.querySelector('.faq-answer');
+      const chevron = question.querySelector('.faq-chevron svg');
+      const isExpanded = question.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current answer
+      question.setAttribute('aria-expanded', String(!isExpanded));
+      answer?.classList.toggle('hidden');
+      chevron?.classList.toggle('rotate-180');
+    });
+  });
+
+  // Auto-expand first category on page load
+  const firstCategory = document.querySelector('.category-header');
+  if (firstCategory) {
+    firstCategory.click();
+  }
+</script>
+
 <style>
-  .card {
+  .faq-category {
     transition: all 0.3s ease;
   }
-  .card:hover {
-    transform: translateY(-2px);
+
+  .faq-item {
+    transition: all 0.2s ease;
+  }
+
+  .faq-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  .category-content {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .faq-answer {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
   }
 </style>
