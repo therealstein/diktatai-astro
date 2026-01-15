@@ -1,6 +1,7 @@
 export const regulatedIndustriesTranslations = {
   de: {
     seo: {
+      title: "Transkription für regulierte Branchen | Diktat AI",
       description: "Regulierte Branchen sicher transkribieren: DSGVO-konform, vertraulich, auditierbar."
     },
     hero: {
@@ -68,6 +69,7 @@ export const regulatedIndustriesTranslations = {
   },
   en: {
     seo: {
+      title: "Transcription for Regulated Industries | Diktat AI",
       description: "Transcribe securely in regulated industries: GDPR-compliant, confidential, auditable."
     },
     hero: {
@@ -135,6 +137,7 @@ export const regulatedIndustriesTranslations = {
   },
   nl: {
     seo: {
+      title: "Transcriptie voor Gereguleerde Sectoren | DiktatAI",
       description: "Veilig transcriberen voor gereguleerde sectoren: AVG-conform, vertrouwelijk, auditeerbaar."
     },
     hero: {
@@ -202,6 +205,7 @@ export const regulatedIndustriesTranslations = {
   },
   es: {
     seo: {
+      title: "Transcripción para Sectores Regulados | Diktat AI",
       description: "Transcripcion segura para sectores regulados: Conforme al RGPD, confidencial, auditable."
     },
     hero: {
@@ -269,6 +273,7 @@ export const regulatedIndustriesTranslations = {
   },
   fr: {
     seo: {
+      title: "Transcription pour Secteurs Réglementés | Diktat AI",
       description: "Transcription securisee pour les secteurs reglementes : Conforme au RGPD, confidentiel, auditable."
     },
     hero: {
@@ -336,6 +341,7 @@ export const regulatedIndustriesTranslations = {
   },
   sv: {
     seo: {
+      title: "Transkription för Reglerade Sektorer | Diktat AI",
       description: "Saker transkribering for reglerade sektorer: GDPR-kompatibel, konfidentiell, reviderbar."
     },
     hero: {

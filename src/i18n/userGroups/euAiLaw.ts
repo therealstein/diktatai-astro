@@ -1,6 +1,7 @@
 export const euAiLawTranslations = {
   de: {
     seo: {
+      title: "EU KI-Gesetz & Compliance | Diktat AI",
       description: "EU KI-Gesetz einfach erklaert: Warum Diktat AI eine sichere, konforme Wahl fuer Transkriptionen ist."
     },
     hero: {
@@ -43,6 +44,7 @@ export const euAiLawTranslations = {
   },
   en: {
     seo: {
+      title: "EU AI Act & Compliance | Diktat AI",
       description: "EU AI Act made simple: Why Diktat AI is a safe, compliant choice for transcriptions."
     },
     hero: {
@@ -85,6 +87,7 @@ export const euAiLawTranslations = {
   },
   nl: {
     seo: {
+      title: "EU AI-wet & Compliance | DiktatAI",
       description: "EU AI-wet eenvoudig uitgelegd: Waarom DiktatAI een veilige, conforme keuze is voor transcripties."
     },
     hero: {
@@ -127,6 +130,7 @@ export const euAiLawTranslations = {
   },
   es: {
     seo: {
+      title: "Ley de IA de la UE & Cumplimiento | Diktat AI",
       description: "Ley de IA de la UE explicada de forma sencilla: Por que Diktat AI es una opcion segura y conforme para transcripciones."
     },
     hero: {
@@ -169,6 +173,7 @@ export const euAiLawTranslations = {
   },
   fr: {
     seo: {
+      title: "AI Act de l'UE & Conformité | Diktat AI",
       description: "AI Act de l'UE explique simplement : Pourquoi Diktat AI est un choix sur et conforme pour les transcriptions."
     },
     hero: {
@@ -211,6 +216,7 @@ export const euAiLawTranslations = {
   },
   sv: {
     seo: {
+      title: "EU:s AI-lag & Efterlevnad | Diktat AI",
       description: "EU:s AI-lag forklarad enkelt: Varfor Diktat AI ar ett sakert, kompatibelt val for transkriptioner."
     },
     hero: {

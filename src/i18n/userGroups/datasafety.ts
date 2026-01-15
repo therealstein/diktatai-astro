@@ -1,7 +1,7 @@
 export const datasafetyTranslations = {
   de: {
     meta: {
-      title: "Sicherheit - Diktat AI",
+      title: "Datensicherheit & DSGVO-Konformität | Diktat AI",
       description: "Erfahren Sie mehr über unsere Sicherheitsmaßnahmen und wie wir Ihre Daten schützen. Diktat AI verarbeitet alle Daten ausschließlich in der EU nach DSGVO-Standards."
     },
     hero: {
@@ -42,7 +42,7 @@ export const datasafetyTranslations = {
   },
   en: {
     meta: {
-      title: "Security - Diktat AI",
+      title: "Data Security & GDPR Compliance | Diktat AI",
       description: "Learn more about our security measures and how we protect your data. Diktat AI processes all data exclusively in the EU according to GDPR standards."
     },
     hero: {
@@ -83,7 +83,7 @@ export const datasafetyTranslations = {
   },
   nl: {
     meta: {
-      title: "Veiligheid - DiktatAI",
+      title: "Gegevensbeveiliging & AVG-Conformiteit | DiktatAI",
       description: "Lees meer over onze beveiligingsmaatregelen en hoe we uw gegevens beschermen. DiktatAI verwerkt alle gegevens uitsluitend in de EU volgens AVG-standaarden."
     },
     hero: {
@@ -124,7 +124,7 @@ export const datasafetyTranslations = {
   },
   es: {
     meta: {
-      title: "Seguridad - Diktat AI",
+      title: "Seguridad de Datos & Conformidad RGPD | Diktat AI",
       description: "Conozca más sobre nuestras medidas de seguridad y cómo protegemos sus datos. Diktat AI procesa todos los datos exclusivamente en la UE según los estándares del RGPD."
     },
     hero: {
@@ -165,7 +165,7 @@ export const datasafetyTranslations = {
   },
   fr: {
     meta: {
-      title: "Sécurité - Diktat AI",
+      title: "Sécurité des Données & Conformité RGPD | Diktat AI",
       description: "En savoir plus sur nos mesures de sécurité et comment nous protégeons vos données. Diktat AI traite toutes les données exclusivement dans l'UE selon les normes RGPD."
     },
     hero: {
@@ -206,7 +206,7 @@ export const datasafetyTranslations = {
   },
   sv: {
     meta: {
-      title: "Säkerhet - Diktat AI",
+      title: "Datasäkerhet & GDPR-Efterlevnad | Diktat AI",
       description: "Läs mer om våra säkerhetsåtgärder och hur vi skyddar dina data. Diktat AI behandlar all data uteslutande i EU enligt GDPR-standarder."
     },
     hero: {

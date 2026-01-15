@@ -1,7 +1,7 @@
 export const aboutTranslations = {
   de: {
     meta: {
-      title: "Über uns - Diktat AI",
+      title: "Über uns - Unsere Geschichte & Vision | Diktat AI",
       description: "Erfahren Sie mehr über die Geschichte und Vision von Diktat AI. Wie aus der Frustration über zeitaufwändige Transkriptionen eine innovative Lösung entstand."
     },
     hero: {
@@ -45,7 +45,7 @@ export const aboutTranslations = {
   },
   en: {
     meta: {
-      title: "About us - Diktat AI",
+      title: "About Us - Our Story & Vision | Diktat AI",
       description: "Learn more about the history and vision of Diktat AI. How frustration with time-consuming transcriptions led to an innovative solution."
     },
     hero: {
@@ -89,7 +89,7 @@ export const aboutTranslations = {
   },
   nl: {
     meta: {
-      title: "Over ons - DiktatAI",
+      title: "Over ons - Ons Verhaal & Visie | DiktatAI",
       description: "Leer meer over de geschiedenis en visie van DiktatAI. Hoe uit frustratie over tijdrovende transcripties een innovatieve oplossing ontstond."
     },
     hero: {
@@ -133,7 +133,7 @@ export const aboutTranslations = {
   },
   es: {
     meta: {
-      title: "Sobre nosotros - Diktat AI",
+      title: "Sobre Nosotros - Nuestra Historia & Visión | Diktat AI",
       description: "Conozca más sobre la historia y visión de Diktat AI. Cómo de la frustración con las transcripciones que consumen tiempo surgió una solución innovadora."
     },
     hero: {
@@ -177,7 +177,7 @@ export const aboutTranslations = {
   },
   fr: {
     meta: {
-      title: "À propos de nous - Diktat AI",
+      title: "À propos de nous - Notre Histoire & Vision | Diktat AI",
       description: "Découvrez l'histoire et la vision de Diktat AI. Comment la frustration liée aux transcriptions chronophages a conduit à une solution innovante."
     },
     hero: {
@@ -221,7 +221,7 @@ export const aboutTranslations = {
   },
   sv: {
     meta: {
-      title: "Om oss - Diktat AI",
+      title: "Om oss - Vår Historia & Vision | Diktat AI",
       description: "Lär dig mer om Diktat AI:s historia och vision. Hur frustration över tidskrävande transkriptioner ledde till en innovativ lösning."
     },
     hero: {

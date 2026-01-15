@@ -1,7 +1,7 @@
 export const lawyersTranslations = {
   de: {
     seo: {
-      title: "Diktat AI für Kanzleien = Effiziente Transkription für Kanzleien",
+      title: "Transkription für Kanzleien & Juristen | Diktat AI",
       description: "Diktat AI für Kanzleien: Effiziente Transkription von juristischen Diktaten, Mandantengesprächen und Vermerken. DSGVO-konform & sicher."
     },
     badge: {

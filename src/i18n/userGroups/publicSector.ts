@@ -1,6 +1,7 @@
 export const publicSectorTranslations = {
   de: {
     seo: {
+      title: "KI-Transkription für Behörden & Verwaltung | Diktat AI",
       description: "Wie Diktat AI Behörden-Dokumentation beschleunigt - effizient, sicher, DSGVO-konform."
     },
     hero: {
@@ -84,6 +85,7 @@ export const publicSectorTranslations = {
   },
   en: {
     seo: {
+      title: "AI Transcription for Public Sector & Government | Diktat AI",
       description: "How Diktat AI speeds up documentation in the public sector - efficient, secure and GDPR-compliant."
     },
     hero: {
@@ -167,6 +169,7 @@ export const publicSectorTranslations = {
   },
   nl: {
     seo: {
+      title: "AI-transcriptie voor Overheid & Publieke Sector | DiktatAI",
       description: "Hoe DiktatAI overheidsdocumentatie versnelt - efficient, veilig, AVG-conform."
     },
     hero: {
@@ -250,6 +253,7 @@ export const publicSectorTranslations = {
   },
   es: {
     seo: {
+      title: "Transcripción IA para Sector Público | Diktat AI",
       description: "Como Diktat AI acelera la documentacion en el sector publico - eficiente, seguro, conforme al RGPD."
     },
     hero: {
@@ -333,6 +337,7 @@ export const publicSectorTranslations = {
   },
   fr: {
     seo: {
+      title: "Transcription IA pour le Secteur Public | Diktat AI",
       description: "Comment Diktat AI accelere la documentation dans le secteur public - efficace, securise, conforme au RGPD."
     },
     hero: {
@@ -416,6 +421,7 @@ export const publicSectorTranslations = {
   },
   sv: {
     seo: {
+      title: "AI-transkription för Offentlig Sektor | Diktat AI",
       description: "Hur Diktat AI snabbar upp dokumentation i den offentliga sektorn - effektivt, sakert, GDPR-kompatibelt."
     },
     hero: {

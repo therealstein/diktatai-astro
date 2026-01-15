@@ -1,7 +1,7 @@
 export const helpTranslations = {
   de: {
     seo: {
-      title: "Hilfe & Support - Diktat AI",
+      title: "Hilfe & Support - Anleitungen & Kontakt | Diktat AI",
       description: "Erhalten Sie Hilfe und Unterstützung für Diktat AI. Kontaktieren Sie unser Support-Team oder finden Sie Anleitungen zur Nutzung."
     },
     hero: {
@@ -37,7 +37,7 @@ export const helpTranslations = {
   },
   en: {
     seo: {
-      title: "Help & Support - Diktat AI",
+      title: "Help & Support - Guides & Contact | Diktat AI",
       description: "Get help and support for Diktat AI. Contact our support team or find guides on how to use the service."
     },
     hero: {
@@ -73,7 +73,7 @@ export const helpTranslations = {
   },
   nl: {
     seo: {
-      title: "Hulp & Ondersteuning - Diktat AI",
+      title: "Hulp & Ondersteuning - Handleidingen | DiktatAI",
       description: "Krijg hulp en ondersteuning voor Diktat AI. Neem contact op met ons supportteam of vind handleidingen."
     },
     hero: {
@@ -96,7 +96,7 @@ export const helpTranslations = {
   },
   es: {
     seo: {
-      title: "Ayuda y Soporte - Diktat AI",
+      title: "Ayuda y Soporte - Guías & Contacto | Diktat AI",
       description: "Obtenga ayuda y soporte para Diktat AI. Contacte con nuestro equipo de soporte o encuentre guías de uso."
     },
     hero: {
@@ -119,7 +119,7 @@ export const helpTranslations = {
   },
   fr: {
     seo: {
-      title: "Aide et Support - Diktat AI",
+      title: "Aide et Support - Guides & Contact | Diktat AI",
       description: "Obtenez de l'aide et du support pour Diktat AI. Contactez notre équipe ou trouvez des guides d'utilisation."
     },
     hero: {
@@ -142,7 +142,7 @@ export const helpTranslations = {
   },
   sv: {
     seo: {
-      title: "Hjälp & Support - Diktat AI",
+      title: "Hjälp & Support - Guider & Kontakt | Diktat AI",
       description: "Få hjälp och support för Diktat AI. Kontakta vårt supportteam eller hitta guider för användning."
     },
     hero: {
